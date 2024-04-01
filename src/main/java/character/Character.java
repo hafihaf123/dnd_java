@@ -1,29 +1,23 @@
 package main.java.character;
 
+import main.java.attributes.Attribute;
+import main.java.attributes.Attributes;
+import main.java.character_class.CharacterClass;
 import main.java.race.Race;
 
 public class Character {
-	//attributes
 	private String name;
 	private Race race;
-	private String characterClass;
-	private int strength;
-	private int dexterity;
-	private int constitution;
-	private int intelligence;
-	private int wisdom;
-	private int charisma;
+	private CharacterClass characterClass;
+	
+	//attributes
+	private Attributes attributes;
 	
 	public static class Builder {
 		private final String name;
 		private Race race;
-		private String characterClass;
-		private int strength;
-		private int dexterity;
-		private int constitution;
-		private int intelligence;
-		private int wisdom;
-		private int charisma;
+		private CharacterClass characterClass;
+		private Attributes attributes;
 		
 		public Builder(String name) {
 			this.name = name;
@@ -34,38 +28,13 @@ public class Character {
 			return this;
 		}
 		
-		public Builder characterClass(String characterClass) {
+		public Builder characterClass(CharacterClass characterClass) {
 			this.characterClass = characterClass;
 			return this;
 		}
 		
-		public Builder strength(int strength) {
-			this.strength = strength;
-			return this;
-		}
-		
-		public Builder dexterity(int dexterity) {
-			this.dexterity = dexterity;
-			return this;
-		}
-		
-		public Builder constitution(int constitution) {
-			this.constitution = constitution;
-			return this;
-		}
-		
-		public Builder intelligence(int intelligence) {
-			this.intelligence = intelligence;
-			return this;
-		}
-		
-		public Builder wisdom(int wisdom) {
-			this.wisdom = wisdom;
-			return this;
-		}
-		
-		public Builder charisma(int charisma) {
-			this.charisma = charisma;
+		public Builder attributes(Attributes attributes) {
+			this.attributes = attributes;
 			return this;
 		}
 		
@@ -78,12 +47,7 @@ public class Character {
 		this.name = builder.name;
 		this.race = builder.race;
 		this.characterClass = builder.characterClass;
-		this.strength = builder.strength;
-		this.dexterity = builder.dexterity;
-		this.constitution = builder.constitution;
-		this.intelligence = builder.intelligence;
-		this.wisdom = builder.wisdom;
-		this.charisma = builder.charisma;
+		this.attributes = builder.attributes;
 	}
 	
 	public String getName() {
@@ -102,60 +66,20 @@ public class Character {
 		this.race = race;
 	}
 	
-	public String getCharacterClass() {
+	public CharacterClass getCharacterClass() {
 		return characterClass;
 	}
 	
-	public void setCharacterClass(String characterClass) {
+	public void setCharacterClass(CharacterClass characterClass) {
 		this.characterClass = characterClass;
 	}
 	
-	public int getStrength() {
-		return strength;
+	public Attributes getAttributes() {
+		return attributes;
 	}
 	
-	public void setStrength(int strength) {
-		this.strength = strength;
-	}
-	
-	public int getDexterity() {
-		return dexterity;
-	}
-	
-	public void setDexterity(int dexterity) {
-		this.dexterity = dexterity;
-	}
-	
-	public int getConstitution() {
-		return constitution;
-	}
-	
-	public void setConstitution(int constitution) {
-		this.constitution = constitution;
-	}
-	
-	public int getIntelligence() {
-		return intelligence;
-	}
-	
-	public void setIntelligence(int intelligence) {
-		this.intelligence = intelligence;
-	}
-	
-	public int getWisdom() {
-		return wisdom;
-	}
-	
-	public void setWisdom(int wisdom) {
-		this.wisdom = wisdom;
-	}
-	
-	public int getCharisma() {
-		return charisma;
-	}
-	
-	public void setCharisma(int charisma) {
-		this.charisma = charisma;
+	public void setAttributes(Attributes attributes) {
+		this.attributes = attributes;
 	}
 	
 	@Override
@@ -165,13 +89,13 @@ public class Character {
 				Character {
 					name = '\{name}',
 					race = '\{race.getRaceName()}',
-					characterClass = '\{characterClass}',
-					strength = '\{strength}',
-					dexterity = '\{dexterity}',
-					constitution = '\{constitution}',
-					intelligence = '\{intelligence}',
-					wisdom = '\{wisdom}',
-					charisma = '\{charisma}'
+					characterClass = '\{characterClass.getClassName()}',
+					strength = '\{attributes.getAttribute(Attribute.STRENGTH)}',
+					dexterity = '\{attributes.getAttribute(Attribute.DEXTERITY)}',
+					constitution = '\{attributes.getAttribute(Attribute.CONSTITUTION)}',
+					intelligence = '\{attributes.getAttribute(Attribute.INTELLIGENCE)}',
+					wisdom = '\{attributes.getAttribute(Attribute.WISDOM)}',
+					charisma = '\{attributes.getAttribute(Attribute.CHARISMA)}'
 				}
 				""" ;
 	}

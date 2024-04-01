@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 public class RaceFactory {
-	private Map<String, Supplier<Race>> raceMap = new HashMap<>();
+	private final Map<String, Supplier<Race>> raceMap = new HashMap<>();
 	
 	public RaceFactory() {
 		raceMap.put("Dragonborn", Dragonborn::new);
