@@ -20,4 +20,9 @@ public class Attributes {
 	public void setAttribute(Attribute attribute, int value) {
 		attributes.put(attribute, value);
 	}
+	
+	public void applyBonus(Attribute attribute, int bonus) {
+		int currentValue = getAttribute(attribute);
+		setAttribute(attribute, currentValue + bonus);
+	}
 }

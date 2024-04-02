@@ -1,17 +1,23 @@
 package main.java.race.human;
 
+import main.java.attributes.Attribute;
+import main.java.attributes.Attributes;
 import main.java.race.Race;
+import main.java.size.SizeCategory;
 
 public class Human extends Race {
 	public Human() {
 		this.raceName = "Human";
-		this.strengthBonus = 1;
-		this.dexterityBonus = 1;
-		this.constitutionBonus = 1;
-		this.intelligenceBonus = 1;
-		this.wisdomBonus = 1;
-		this.charismaBonus = 1;
 		this.ageMax = 100;
+		this.size = SizeCategory.MEDIUM;
 		this.speed = 30;
+		addLanguage(chooseExtraLanguage("Choose an extra language: (cannot choose: COMMON)", this.languages));
+	}
+	
+	@Override
+	public void applyRaceBonuses(Attributes attributes) {
+		for (Attribute attribute : Attribute.values()) {
+			attributes.applyBonus(attribute, 1);
+		}
 	}
 }

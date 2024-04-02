@@ -1,40 +1,26 @@
 package main.java.character_class;
 
+import main.java.attributes.Attribute;
+
 public abstract class CharacterClass {
 	protected String className;
 	protected int hitDie;
-	protected String[] primaryAbility;
-	protected String[] savingThrowProficiencies;
+	protected Attribute[] primaryAbility;
+	protected Attribute[] savingThrowProficiencies;
 	
 	public String getClassName() {
 		return className;
-	}
-	
-	public void setClassName(String className) {
-		this.className = className;
 	}
 	
 	public int getHitDie() {
 		return hitDie;
 	}
 	
-	public void setHitDie(int hitDie) {
-		this.hitDie = hitDie;
-	}
-	
-	public String[] getPrimaryAbility() {
+	public Attribute[] getPrimaryAbility() {
 		return primaryAbility;
 	}
 	
-	public void setPrimaryAbility(String[] primaryAbility) {
-		this.primaryAbility = primaryAbility;
-	}
-	
-	public String[] getSavingThrowProficiencies() {
+	public Attribute[] getSavingThrowProficiencies() {
 		return savingThrowProficiencies;
-	}
-	
-	public void setSavingThrowProficiencies(String[] savingThrowProficiencies) {
-		this.savingThrowProficiencies = savingThrowProficiencies;
 	}
 }

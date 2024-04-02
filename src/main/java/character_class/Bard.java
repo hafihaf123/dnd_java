@@ -1,10 +1,12 @@
 package main.java.character_class;
 
+import main.java.attributes.Attribute;
+
 public class Bard extends CharacterClass {
 	public Bard() {
 		this.className = "Bard";
 		this.hitDie = 8;
-		this.primaryAbility = new String[] {"Charisma"};
-		this.savingThrowProficiencies = new String[] {"Dexterity", "Charisma"};
+		this.primaryAbility = new Attribute[] {Attribute.CHARISMA};
+		this.savingThrowProficiencies = new Attribute[] {Attribute.DEXTERITY, Attribute.CHARISMA};
 	}
 }

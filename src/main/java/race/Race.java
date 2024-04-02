@@ -1,86 +1,37 @@
 package main.java.race;
 
+import main.java.attributes.Attribute;
+import main.java.attributes.Attributes;
+import main.java.language.Language;
+import main.java.size.SizeCategory;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import static main.java.utils.ObjectsUtils.isExcluded;
+
 public abstract class Race {
 	protected String raceName;
-	
-	//ability score increase
-	protected int strengthBonus = 0;
-	protected int dexterityBonus = 0;
-	protected int constitutionBonus = 0;
-	protected int intelligenceBonus = 0;
-	protected int wisdomBonus = 0;
-	protected int charismaBonus = 0;
-	
-	//the race's expected lifespan
 	protected int ageMax;
-	
-	//size
-	
+	protected SizeCategory size;
 	//speed in feet
 	protected int speed;
+	protected List<Language> languages = new ArrayList<>();
+	
+	//ability score increase
+	public abstract void applyRaceBonuses(Attributes attributes);
+	
+	public Race() {
+		addLanguage(Language.COMMON);
+	}
 	
 	public String getRaceName() {
 		return raceName;
 	}
 	
-	public void setRaceName(String raceName) {
-		this.raceName = raceName;
-	}
-	
-	public int getStrengthBonus() {
-		return strengthBonus;
-	}
-	
-	public void setStrengthBonus(int strengthBonus) {
-		this.strengthBonus = strengthBonus;
-	}
-	
-	public int getDexterityBonus() {
-		return dexterityBonus;
-	}
-	
-	public void setDexterityBonus(int dexterityBonus) {
-		this.dexterityBonus = dexterityBonus;
-	}
-	
-	public int getConstitutionBonus() {
-		return constitutionBonus;
-	}
-	
-	public void setConstitutionBonus(int constitutionBonus) {
-		this.constitutionBonus = constitutionBonus;
-	}
-	
-	public int getIntelligenceBonus() {
-		return intelligenceBonus;
-	}
-	
-	public void setIntelligenceBonus(int intelligenceBonus) {
-		this.intelligenceBonus = intelligenceBonus;
-	}
-	
-	public int getWisdomBonus() {
-		return wisdomBonus;
-	}
-	
-	public void setWisdomBonus(int wisdomBonus) {
-		this.wisdomBonus = wisdomBonus;
-	}
-	
-	public int getCharismaBonus() {
-		return charismaBonus;
-	}
-	
-	public void setCharismaBonus(int charismaBonus) {
-		this.charismaBonus = charismaBonus;
-	}
-	
 	public int getAgeMax() {
 		return ageMax;
-	}
-	
-	public void setAgeMax(int ageMax) {
-		this.ageMax = ageMax;
 	}
 	
 	public int getSpeed() {
@@ -89,5 +40,55 @@ public abstract class Race {
 	
 	public void setSpeed(int speed) {
 		this.speed = speed;
+	}
+	
+	public SizeCategory getSize() {
+		return size;
+	}
+	
+	public void addLanguage(Language language) {
+		this.languages.add(language);
+	}
+	
+	public List<Language> getLanguages() {
+		return languages;
+	}
+	
+	protected static Attribute chooseExtraAttribute(String prompt, Attribute... exclude) {
+		Scanner scanner = new Scanner(System.in);
+		Attribute extraAttribute;
+		do {
+			System.out.println(prompt);
+			for (Attribute attribute : Attribute.values()) {
+				System.out.println(attribute);
+			}
+			String input = scanner.nextLine().toUpperCase();
+			try {
+				extraAttribute = Attribute.valueOf(input);
+			} catch (IllegalArgumentException e) {
+				System.out.println("Invalid attribute choice.");
+				extraAttribute = chooseExtraAttribute(prompt);
+			}
+		} while (!isExcluded(extraAttribute, exclude));
+		return extraAttribute;
+	}
+	
+	protected static Language chooseExtraLanguage(String prompt, List<Language> languages) {
+		Scanner scanner = new Scanner(System.in);
+		Language extraLanguage;
+		do {
+			System.out.println(prompt);
+			for (Language language : Language.values()) {
+				System.out.println(language);
+			}
+			String input = scanner.nextLine().toUpperCase();
+			try {
+				extraLanguage = Language.valueOf(input);
+			} catch (IllegalArgumentException e) {
+				System.out.println("Invalid language choice.");
+				extraLanguage = chooseExtraLanguage(prompt, languages);
+			}
+		} while (!isExcluded(extraLanguage, languages));
+		return extraLanguage;
 	}
 }

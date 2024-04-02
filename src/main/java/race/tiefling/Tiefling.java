@@ -1,12 +1,23 @@
 package main.java.race.tiefling;
 
+import main.java.attributes.Attribute;
+import main.java.attributes.Attributes;
+import main.java.language.Language;
 import main.java.race.Race;
+import main.java.size.SizeCategory;
 
 public class Tiefling extends Race {
 	public Tiefling() {
 		this.raceName = "Tiefling";
-		this.intelligenceBonus = 1;
-		this.charismaBonus = 2;
+		this.ageMax = 110;
+		this.size = SizeCategory.MEDIUM;
 		this.speed = 30;
+		addLanguage(Language.INFERNAL);
+	}
+	
+	@Override
+	public void applyRaceBonuses(Attributes attributes) {
+		attributes.applyBonus(Attribute.INTELLIGENCE, 1);
+		attributes.applyBonus(Attribute.CHARISMA, 2);
 	}
 }
