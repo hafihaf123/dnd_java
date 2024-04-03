@@ -1,5 +1,6 @@
 package main.java.character;
 
+import main.java.alignment.Alignment;
 import main.java.attributes.Attribute;
 import main.java.attributes.Attributes;
 import main.java.character_class.CharacterClass;
@@ -19,13 +20,15 @@ public class Character {
 	private final List<Language> languages;
 	private CharacterClass characterClass;
 	private Attributes attributes;
+	private Alignment alignment;
 	
 	public static class Builder {
 		private final String name;
 		private Race race;
+		private int age;
 		private CharacterClass characterClass;
 		private Attributes attributes;
-		private int age;
+		private Alignment alignment;
 		
 		public Builder(String name) {
 			this.name = name;
@@ -51,6 +54,11 @@ public class Character {
 			return this;
 		}
 		
+		public Builder alignment(Alignment alignment) {
+			this.alignment = alignment;
+			return this;
+		}
+		
 		public Character build() {
 			return new Character(this);
 		}
@@ -66,6 +74,7 @@ public class Character {
 		this.characterClass = builder.characterClass;
 		this.attributes = builder.attributes;
 		race.applyRaceBonuses(attributes);
+		this.alignment = builder.alignment;
 	}
 	
 	public String getName() {
@@ -132,6 +141,14 @@ public class Character {
 		languages.add(language);
 	}
 	
+	public Alignment getAlignment() {
+		return alignment;
+	}
+	
+	public void setAlignment(Alignment alignment) {
+		this.alignment = alignment;
+	}
+	
 	@Override
 	public String toString() {
 		return STR
@@ -144,12 +161,12 @@ public class Character {
 					speed = '\{speed}',
 					languages = '\{languages}',
 					characterClass = '\{characterClass.getClassName()}',
-					strength = '\{attributes.getAttribute(Attribute.STRENGTH)}',
-					dexterity = '\{attributes.getAttribute(Attribute.DEXTERITY)}',
-					constitution = '\{attributes.getAttribute(Attribute.CONSTITUTION)}',
-					intelligence = '\{attributes.getAttribute(Attribute.INTELLIGENCE)}',
-					wisdom = '\{attributes.getAttribute(Attribute.WISDOM)}',
-					charisma = '\{attributes.getAttribute(Attribute.CHARISMA)}'
+					strength = '\{attributes.getAttribute(Attribute.STR)}',
+					dexterity = '\{attributes.getAttribute(Attribute.DEX)}',
+					constitution = '\{attributes.getAttribute(Attribute.CON)}',
+					intelligence = '\{attributes.getAttribute(Attribute.INT)}',
+					wisdom = '\{attributes.getAttribute(Attribute.WIS)}',
+					charisma = '\{attributes.getAttribute(Attribute.CHA)}'
 				}
 				""" ;
 	}

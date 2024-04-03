@@ -1,10 +1,10 @@
 package main.java.attributes;
 
 public enum Attribute {
-	STRENGTH,
-	DEXTERITY,
-	CONSTITUTION,
-	INTELLIGENCE,
-	WISDOM,
-	CHARISMA
+	STR,
+	DEX,
+	CON,
+	INT,
+	WIS,
+	CHA
 }

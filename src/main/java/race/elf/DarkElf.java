@@ -11,6 +11,6 @@ public class DarkElf extends Elf {
 	@Override
 	public void applyRaceBonuses(Attributes attributes) {
 		super.applyRaceBonuses(attributes);
-		attributes.applyBonus(Attribute.CHARISMA, 1);
+		attributes.applyBonus(Attribute.CHA, 1);
 	}
 }

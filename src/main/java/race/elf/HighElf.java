@@ -11,6 +11,6 @@ public class HighElf extends Elf {
 	@Override
 	public void applyRaceBonuses(Attributes attributes) {
 		super.applyRaceBonuses(attributes);
-		attributes.applyBonus(Attribute.INTELLIGENCE, 1);
+		attributes.applyBonus(Attribute.INT, 1);
 	}
 }

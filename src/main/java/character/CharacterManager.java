@@ -1,5 +1,6 @@
 package main.java.character;
 
+import main.java.alignment.Alignment;
 import main.java.attributes.Attribute;
 import main.java.attributes.Attributes;
 import main.java.character_class.CharacterClass;
@@ -8,7 +9,10 @@ import main.java.dice.Dice;
 import main.java.race.Race;
 import main.java.race.RaceFactory;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Scanner;
+import java.util.Set;
 
 import static main.java.utils.InputUtils.getIntegerInput;
 import static main.java.utils.InputUtils.getStringInput;
@@ -31,12 +35,14 @@ public class CharacterManager {
 		int age = readCharacterAge(race);
 		CharacterClass characterClass = readCharacterClass();
 		Attributes attributes = readCharacterAttributes();
+		Alignment alignment = readCharacterAlignment();
 		
 		return new Character.Builder(name)
 				.race(race)
 				.age(age)
 				.characterClass(characterClass)
 				.attributes(attributes)
+				.alignment(alignment)
 				.build();
 	}
 	
@@ -112,5 +118,22 @@ public class CharacterManager {
 			attributes.setAttribute(attribute, points[n-1]);
 		}
 		return attributes;
+	}
+	
+	private Alignment readCharacterAlignment() {
+		System.out.println("Enter alignment: ");
+		System.out.print("Choices: ");
+		for (Alignment alignment : Alignment.values()) {
+			System.out.print(STR."\{alignment}, ");
+		}
+		String alignmentInput = scanner.nextLine().toUpperCase();
+		Alignment alignment;
+		try {
+			alignment = Alignment.valueOf(alignmentInput);
+		} catch (IllegalArgumentException e) {
+			System.out.println("Invalid language choice.");
+			alignment = readCharacterAlignment();
+		}
+		return alignment;
 	}
 }

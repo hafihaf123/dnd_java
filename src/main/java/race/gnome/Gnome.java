@@ -17,6 +17,6 @@ public class Gnome extends Race {
 	
 	@Override
 	public void applyRaceBonuses(Attributes attributes) {
-		attributes.applyBonus(Attribute.INTELLIGENCE, 2);
+		attributes.applyBonus(Attribute.INT, 2);
 	}
 }

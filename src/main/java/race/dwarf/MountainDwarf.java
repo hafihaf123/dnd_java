@@ -11,6 +11,6 @@ public class MountainDwarf extends Dwarf {
 	@Override
 	public void applyRaceBonuses(Attributes attributes) {
 		super.applyRaceBonuses(attributes);
-		attributes.applyBonus(Attribute.STRENGTH, 2);
+		attributes.applyBonus(Attribute.STR, 2);
 	}
 }

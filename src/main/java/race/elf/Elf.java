@@ -17,6 +17,6 @@ public class Elf extends Race {
 	
 	@Override
 	public void applyRaceBonuses(Attributes attributes) {
-		attributes.applyBonus(Attribute.DEXTERITY, 2);
+		attributes.applyBonus(Attribute.DEX, 2);
 	}
 }

@@ -11,6 +11,6 @@ public class ForestGnome extends Gnome {
 	@Override
 	public void applyRaceBonuses(Attributes attributes) {
 		super.applyRaceBonuses(attributes);
-		attributes.applyBonus(Attribute.DEXTERITY, 1);
+		attributes.applyBonus(Attribute.DEX, 1);
 	}
 }

@@ -11,6 +11,6 @@ public class Stout extends Halfling {
 	@Override
 	public void applyRaceBonuses(Attributes attributes) {
 		super.applyRaceBonuses(attributes);
-		attributes.applyBonus(Attribute.CONSTITUTION, 1);
+		attributes.applyBonus(Attribute.CON, 1);
 	}
 }

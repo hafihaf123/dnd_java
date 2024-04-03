@@ -17,6 +17,6 @@ public class Dwarf extends Race {
 	
 	@Override
 	public void applyRaceBonuses(Attributes attributes) {
-		attributes.applyBonus(Attribute.CONSTITUTION, 2);
+		attributes.applyBonus(Attribute.CON, 2);
 	}
 }

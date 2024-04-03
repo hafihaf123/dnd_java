@@ -11,6 +11,6 @@ public class HillDwarf extends Dwarf {
 	@Override
 	public void applyRaceBonuses(Attributes attributes) {
 		super.applyRaceBonuses(attributes);
-		attributes.applyBonus(Attribute.WISDOM, 1);
+		attributes.applyBonus(Attribute.WIS, 1);
 	}
 }

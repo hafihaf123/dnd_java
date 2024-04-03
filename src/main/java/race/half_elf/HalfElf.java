@@ -19,9 +19,9 @@ public class HalfElf extends Race {
 	
 	@Override
 	public void applyRaceBonuses(Attributes attributes) {
-		attributes.applyBonus(Attribute.CHARISMA, 2);
-		Attribute firstExtraAttribute = chooseExtraAttribute("Choose an extra attribute to increase by 1: (cannot choose: CHARISMA)", Attribute.CHARISMA);
-		Attribute secondExtraAttribute = chooseExtraAttribute(STR."Choose another extra attribute to increase by 1: (cannot choose: CHARISMA, \{firstExtraAttribute})", Attribute.CHARISMA, firstExtraAttribute);
+		attributes.applyBonus(Attribute.CHA, 2);
+		Attribute firstExtraAttribute = chooseExtraAttribute("Choose an extra attribute to increase by 1: (cannot choose: CHARISMA)", Attribute.CHA);
+		Attribute secondExtraAttribute = chooseExtraAttribute(STR."Choose another extra attribute to increase by 1: (cannot choose: CHARISMA, \{firstExtraAttribute})", Attribute.CHA, firstExtraAttribute);
 		attributes.applyBonus(firstExtraAttribute, 1);
 		attributes.applyBonus(secondExtraAttribute, 1);
 	}

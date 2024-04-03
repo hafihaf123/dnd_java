@@ -17,7 +17,7 @@ public class Dragonborn extends Race {
 	
 	@Override
 	public void applyRaceBonuses(Attributes attributes) {
-		attributes.applyBonus(Attribute.STRENGTH, 2);
-		attributes.applyBonus(Attribute.CHARISMA, 1);
+		attributes.applyBonus(Attribute.STR, 2);
+		attributes.applyBonus(Attribute.CHA, 1);
 	}
 }

@@ -17,7 +17,7 @@ public class HalfOrc extends Race {
 	
 	@Override
 	public void applyRaceBonuses(Attributes attributes) {
-		attributes.applyBonus(Attribute.STRENGTH, 2);
-		attributes.applyBonus(Attribute.CONSTITUTION, 1);
+		attributes.applyBonus(Attribute.STR, 2);
+		attributes.applyBonus(Attribute.CON, 1);
 	}
 }

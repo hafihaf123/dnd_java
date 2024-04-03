@@ -17,7 +17,7 @@ public class Tiefling extends Race {
 	
 	@Override
 	public void applyRaceBonuses(Attributes attributes) {
-		attributes.applyBonus(Attribute.INTELLIGENCE, 1);
-		attributes.applyBonus(Attribute.CHARISMA, 2);
+		attributes.applyBonus(Attribute.INT, 1);
+		attributes.applyBonus(Attribute.CHA, 2);
 	}
 }
