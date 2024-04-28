@@ -13,11 +13,15 @@ public class CharacterClassFactory {
 		classMap.put("Cleric", Cleric::new);
 	}
 	
-	public CharacterClass getClass(String className) {
+	public CharacterClass getClass(String className) throws IllegalArgumentException {
 		Supplier<CharacterClass> characterClass = classMap.get(className);
 		if (characterClass != null) {
 			return characterClass.get();
 		}
 		throw new IllegalArgumentException(STR."Invalid class: \{className}");
+	}
+
+	public Map<String, Supplier<CharacterClass>> getClassMap() {
+		return classMap;
 	}
 }

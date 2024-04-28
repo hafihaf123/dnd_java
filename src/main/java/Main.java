@@ -16,7 +16,7 @@ public class Main {
 		RaceFactory raceFactory = new RaceFactory();
 		
 		CharacterManager characterManager = new CharacterManager(scanner, characterClassFactory, raceFactory);
-		
+
 		Character character = characterManager.createCharacterFromInput();
 		
 		System.out.println(STR."\n\{character}");

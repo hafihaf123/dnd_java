@@ -11,7 +11,7 @@ public class Human extends Race {
 		this.ageMax = 100;
 		this.size = SizeCategory.MEDIUM;
 		this.speed = 30;
-		addLanguage(chooseExtraLanguage("Choose an extra language: (cannot choose: COMMON)", this.languages));
+		addLanguage(chooseExtra("Choose an extra language: (cannot choose: COMMON)", this.languages));
 	}
 	
 	@Override

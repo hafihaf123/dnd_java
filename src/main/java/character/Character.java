@@ -4,25 +4,19 @@ import main.java.alignment.Alignment;
 import main.java.attributes.Attribute;
 import main.java.attributes.Attributes;
 import main.java.character_class.CharacterClass;
+import main.java.creature.Creature;
 import main.java.language.Language;
 import main.java.race.Race;
 import main.java.size.SizeCategory;
 
 import java.util.List;
 
-public class Character {
-	private String name;
+public class Character extends Creature {
 	private Race race;
 	private int age;
-	private SizeCategory size;
-	/** speed in feet */
-	private int speed;
-	private final List<Language> languages;
 	private CharacterClass characterClass;
-	private Attributes attributes;
-	private Alignment alignment;
-	
-	public static class Builder {
+
+    public static class Builder {
 		private final String name;
 		private Race race;
 		private int age;
@@ -66,6 +60,7 @@ public class Character {
 	
 	public Character(Builder builder) {
 		this.name = builder.name;
+//		this.armorClass =
 		this.race = builder.race;
 		this.size = race.getSize();
 		this.speed = race.getSpeed();
@@ -74,6 +69,7 @@ public class Character {
 		this.characterClass = builder.characterClass;
 		this.attributes = builder.attributes;
 		race.applyRaceBonuses(attributes);
+		this.hp = characterClass.getHitDie() + attributes.getModifier(Attribute.CON);
 		this.alignment = builder.alignment;
 	}
 	
@@ -151,16 +147,18 @@ public class Character {
 	
 	@Override
 	public String toString() {
-		return STR
-				. """
+		return STR.
+				"""
 				Character {
 					name = '\{name}',
 					race = '\{race.getRaceName()}',
-					age = '\{age}',
 					size = '\{size}',
 					speed = '\{speed}',
+                    age = '\{age}',
 					languages = '\{languages}',
 					characterClass = '\{characterClass.getClassName()}',
+					hp = '\{hp}',
+					alignment = '\{alignment}',
 					strength = '\{attributes.getAttribute(Attribute.STR)}',
 					dexterity = '\{attributes.getAttribute(Attribute.DEX)}',
 					constitution = '\{attributes.getAttribute(Attribute.CON)}',
@@ -168,6 +166,6 @@ public class Character {
 					wisdom = '\{attributes.getAttribute(Attribute.WIS)}',
 					charisma = '\{attributes.getAttribute(Attribute.CHA)}'
 				}
-				""" ;
+				""";
 	}
 }

@@ -47,11 +47,15 @@ public class RaceFactory {
 		raceMap.put("Tiefling", Tiefling::new);
 	}
 	
-	public Race getRace(String raceName) {
+	public Race getRace(String raceName) throws IllegalArgumentException {
 		Supplier<Race> race = raceMap.get(raceName);
 		if (race != null) {
 			return race.get();
 		}
 		throw new IllegalArgumentException(STR."Invalid race: \{raceName}");
+	}
+
+	public Map<String, Supplier<Race>> getRaceMap() {
+		return raceMap;
 	}
 }

@@ -52,7 +52,14 @@ public class CharacterManager {
 	
 	private Race readCharacterRace() {
 		String raceInput = getStringInput("Enter race: ", scanner);
-		return raceFactory.getRace(raceInput);
+		try {
+			return raceFactory.getRace(raceInput);
+		} catch (IllegalArgumentException e) {
+			for (String raceName: raceFactory.getRaceMap().keySet()) {
+				System.out.println(raceName);
+			}
+			return readCharacterRace();
+		}
 	}
 	
 	private int readCharacterAge(Race race) {
@@ -73,7 +80,14 @@ public class CharacterManager {
 	
 	private CharacterClass readCharacterClass() {
 		String classInput = getStringInput("Enter class: ", scanner);
-		return characterClassFactory.getClass(classInput);
+		try {
+			return characterClassFactory.getClass(classInput);
+		} catch (IllegalArgumentException e) {
+			for (String className: characterClassFactory.getClassMap().keySet()) {
+				System.out.println(className);
+			}
+			return readCharacterClass();
+		}
 	}
 	
 	private Attributes readCharacterAttributes() {
@@ -127,13 +141,11 @@ public class CharacterManager {
 			System.out.print(STR."\{alignment}, ");
 		}
 		String alignmentInput = scanner.nextLine().toUpperCase();
-		Alignment alignment;
 		try {
-			alignment = Alignment.valueOf(alignmentInput);
+			return Alignment.valueOf(alignmentInput);
 		} catch (IllegalArgumentException e) {
 			System.out.println("Invalid language choice.");
-			alignment = readCharacterAlignment();
+			return readCharacterAlignment();
 		}
-		return alignment;
 	}
 }

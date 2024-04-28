@@ -12,6 +12,10 @@ public class Attributes {
 			attributes.put(attribute, 10);
 		}
 	}
+
+	public int getModifier(Attribute attribute) {
+		return (attributes.get(attribute) - 10)/2;
+	}
 	
 	public int getAttribute(Attribute attribute) {
 		return attributes.get(attribute);

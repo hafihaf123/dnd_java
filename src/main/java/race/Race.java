@@ -1,11 +1,11 @@
 package main.java.race;
 
-import main.java.attributes.Attribute;
 import main.java.attributes.Attributes;
 import main.java.language.Language;
 import main.java.size.SizeCategory;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +17,7 @@ public abstract class Race {
 	protected SizeCategory size;
 	//speed in feet
 	protected int speed;
-	protected List<Language> languages = new ArrayList<>();
+	protected final List<Language> languages = new ArrayList<>();
 	
 	//ability score increase
 	public abstract void applyRaceBonuses(Attributes attributes);
@@ -53,42 +53,28 @@ public abstract class Race {
 	public List<Language> getLanguages() {
 		return languages;
 	}
-	
-	protected static Attribute chooseExtraAttribute(String prompt, Attribute... exclude) {
-		Scanner scanner = new Scanner(System.in);
-		Attribute extraAttribute;
-		do {
-			System.out.println(prompt);
-			for (Attribute attribute : Attribute.values()) {
-				System.out.println(attribute);
-			}
-			String input = scanner.nextLine().toUpperCase();
-			try {
-				extraAttribute = Attribute.valueOf(input);
-			} catch (IllegalArgumentException e) {
-				System.out.println("Invalid attribute choice.");
-				extraAttribute = chooseExtraAttribute(prompt);
-			}
-		} while (!isExcluded(extraAttribute, exclude));
-		return extraAttribute;
+
+    @SafeVarargs
+	protected static <T extends Enum<T>> T chooseExtra(String prompt, T... toExclude) {
+		return chooseExtra(prompt, List.of(toExclude));
 	}
-	
-	protected static Language chooseExtraLanguage(String prompt, List<Language> languages) {
+
+    protected static <T extends Enum<T>> T chooseExtra(String prompt, List<T> toExclude) {
 		Scanner scanner = new Scanner(System.in);
-		Language extraLanguage;
+		T extra;
 		do {
 			System.out.println(prompt);
-			for (Language language : Language.values()) {
-				System.out.println(language);
+			for (T t : EnumSet.allOf(toExclude.getFirst().getDeclaringClass())) {
+				System.out.println(t);
 			}
 			String input = scanner.nextLine().toUpperCase();
 			try {
-				extraLanguage = Language.valueOf(input);
+				extra = Enum.valueOf(toExclude.getFirst().getDeclaringClass(), input);
 			} catch (IllegalArgumentException e) {
 				System.out.println("Invalid language choice.");
-				extraLanguage = chooseExtraLanguage(prompt, languages);
+				extra = chooseExtra(prompt, toExclude);
 			}
-		} while (!isExcluded(extraLanguage, languages));
-		return extraLanguage;
+		} while (!isExcluded(extra, toExclude));
+		return extra;
 	}
 }
