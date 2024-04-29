@@ -6,23 +6,27 @@ import main.java.language.Language;
 import main.java.race.Race;
 import main.java.size.SizeCategory;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class HalfElf extends Race {
 	public HalfElf() {
 		this.raceName = "Half-Elf";
-		//two other ability scores of your choice increase by 1
 		this.ageMax = 200;
 		this.size = SizeCategory.MEDIUM;
 		this.speed = 30;
 		addLanguage(Language.ELVISH);
-		addLanguage(chooseExtra("Choose an extra language: (cannot choose: COMMON, ELVISH)", this.languages));
+		addLanguage(chooseExtra("Choose an extra language", this.languages));
 	}
 	
 	@Override
 	public void applyRaceBonuses(Attributes attributes) {
-		attributes.applyBonus(Attribute.CHA, 2);
-		Attribute firstExtraAttribute = chooseExtra("Choose an extra attribute to increase by 1: (cannot choose: CHA)", Attribute.CHA);
-		Attribute secondExtraAttribute = chooseExtra(STR."Choose another extra attribute to increase by 1: (cannot choose: CHA, \{firstExtraAttribute})", Attribute.CHA, firstExtraAttribute);
-		attributes.applyBonus(firstExtraAttribute, 1);
-		attributes.applyBonus(secondExtraAttribute, 1);
+        attributes.applyBonus(Attribute.CHA, 1);
+		Set<Attribute> extraAttributes = new HashSet<>();
+		extraAttributes.add(Attribute.CHA);
+		extraAttributes.add(chooseExtra("Choose another extra attribute to increase by 1", extraAttributes));
+		extraAttributes.add(chooseExtra("Choose another extra attribute to increase by 1", extraAttributes));
+		for (Attribute attribute: extraAttributes)
+			attributes.applyBonus(attribute, 1);
 	}
 }

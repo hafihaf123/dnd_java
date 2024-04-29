@@ -6,15 +6,14 @@ import main.java.attributes.Attributes;
 import main.java.character_class.CharacterClass;
 import main.java.creature.Creature;
 import main.java.language.Language;
+import main.java.proficiency.Proficiencies;
 import main.java.race.Race;
-import main.java.size.SizeCategory;
-
-import java.util.List;
 
 public class Character extends Creature {
 	private Race race;
 	private int age;
 	private CharacterClass characterClass;
+	private Proficiencies proficiencies;
 
     public static class Builder {
 		private final String name;
@@ -69,19 +68,12 @@ public class Character extends Creature {
 		this.characterClass = builder.characterClass;
 		this.attributes = builder.attributes;
 		race.applyRaceBonuses(attributes);
-		this.hp = characterClass.getHitDie() + attributes.getModifier(Attribute.CON);
+		this.maxHP = characterClass.getHitDie() + attributes.getModifier(Attribute.CON);
+		this.currentHP = this.maxHP;
 		this.alignment = builder.alignment;
 	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public Race getRace() {
+
+    public Race getRace() {
 		return race;
 	}
 	
@@ -96,55 +88,27 @@ public class Character extends Creature {
 	public void setCharacterClass(CharacterClass characterClass) {
 		this.characterClass = characterClass;
 	}
-	
-	public Attributes getAttributes() {
-		return attributes;
-	}
-	
-	public void setAttributes(Attributes attributes) {
-		this.attributes = attributes;
-	}
-	
-	public SizeCategory getSize() {
-		return size;
-	}
-	
-	public void setSize(SizeCategory size) {
-		this.size = size;
-	}
-	
-	public int getSpeed() {
-		return speed;
-	}
-	
-	public void setSpeed(int speed) {
-		this.speed = speed;
-	}
-	
-	public int getAge() {
+
+    public int getAge() {
 		return age;
 	}
 	
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
-	public List<Language> getLanguages() {
-		return languages;
-	}
-	
-	public void addLanguage(Language language) {
+
+    public void addLanguage(Language language) {
 		languages.add(language);
 	}
-	
-	public Alignment getAlignment() {
-		return alignment;
+
+	public Proficiencies getProficiencies() {
+		return proficiencies;
 	}
-	
-	public void setAlignment(Alignment alignment) {
-		this.alignment = alignment;
+
+	public void setProficiencies(Proficiencies proficiencies) {
+		this.proficiencies = proficiencies;
 	}
-	
+
 	@Override
 	public String toString() {
 		return STR.
@@ -154,10 +118,11 @@ public class Character extends Creature {
 					race = '\{race.getRaceName()}',
 					size = '\{size}',
 					speed = '\{speed}',
-                    age = '\{age}',
+					age = '\{age}',
 					languages = '\{languages}',
 					characterClass = '\{characterClass.getClassName()}',
-					hp = '\{hp}',
+					current HP = '\{currentHP}',
+					max HP = '\{maxHP}',
 					alignment = '\{alignment}',
 					strength = '\{attributes.getAttribute(Attribute.STR)}',
 					dexterity = '\{attributes.getAttribute(Attribute.DEX)}',

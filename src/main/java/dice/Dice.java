@@ -8,7 +8,7 @@ public class Dice {
 	
 	public Dice(int sides) {
 		if (sides <= 0)
-			throw new IllegalArgumentException("The number of sides must be grater than zero");
+			throw new IllegalArgumentException("The number of sides must be greater than zero");
 		this.sides = sides;
 		random = new Random();
 	}
@@ -18,12 +18,11 @@ public class Dice {
 	}
 	
 	public int roll(int numberOfRolls) {
-		if (numberOfRolls <= 0)
-			throw new IllegalArgumentException("The number of rolls must be grater than zero");
+		if (numberOfRolls < 0)
+			throw new IllegalArgumentException("The number of rolls must be positive");
 		int total = 0;
-		for (int i = 0; i < numberOfRolls; i++) {
+		for (int i = 0; i < numberOfRolls; i++)
 			total += roll();
-		}
 		return total;
 	}
 	
@@ -33,7 +32,7 @@ public class Dice {
 	
 	public void setSides(int sides) {
 		if (sides <= 0)
-			throw new IllegalArgumentException("The number of sides must be grater than zero");
+			throw new IllegalArgumentException("The number of sides must be greater than zero");
 		this.sides = sides;
 	}
 }

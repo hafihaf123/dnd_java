@@ -4,10 +4,7 @@ import main.java.attributes.Attributes;
 import main.java.language.Language;
 import main.java.size.SizeCategory;
 
-import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 import static main.java.utils.ObjectsUtils.isExcluded;
 
@@ -17,7 +14,7 @@ public abstract class Race {
 	protected SizeCategory size;
 	//speed in feet
 	protected int speed;
-	protected final List<Language> languages = new ArrayList<>();
+	protected final Set<Language> languages = new HashSet<>();
 	
 	//ability score increase
 	public abstract void applyRaceBonuses(Attributes attributes);
@@ -50,26 +47,24 @@ public abstract class Race {
 		this.languages.add(language);
 	}
 	
-	public List<Language> getLanguages() {
+	public Set<Language> getLanguages() {
 		return languages;
 	}
 
-    @SafeVarargs
-	protected static <T extends Enum<T>> T chooseExtra(String prompt, T... toExclude) {
-		return chooseExtra(prompt, List.of(toExclude));
-	}
-
-    protected static <T extends Enum<T>> T chooseExtra(String prompt, List<T> toExclude) {
+    protected static <T extends Enum<T>> T chooseExtra(String prompt, Set<T> toExclude) {
 		Scanner scanner = new Scanner(System.in);
 		T extra;
 		do {
-			System.out.println(prompt);
-			for (T t : EnumSet.allOf(toExclude.getFirst().getDeclaringClass())) {
+			System.out.print(STR."\{prompt}: (cannot choose:");
+			for (T t: toExclude)
+				System.out.print(STR." \{t}");
+			System.out.println(")");
+			for (T t: EnumSet.allOf(toExclude.iterator().next().getDeclaringClass())) {
 				System.out.println(t);
 			}
-			String input = scanner.nextLine().toUpperCase();
+			String input = scanner.nextLine();
 			try {
-				extra = Enum.valueOf(toExclude.getFirst().getDeclaringClass(), input);
+				extra = Enum.valueOf(toExclude.iterator().next().getDeclaringClass(), input.toUpperCase());
 			} catch (IllegalArgumentException e) {
 				System.out.println("Invalid language choice.");
 				extra = chooseExtra(prompt, toExclude);
