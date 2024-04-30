@@ -7,5 +7,5 @@ public abstract class Item implements Proficiency {
     protected String name;
     protected Coin cost;
     /** in lb */
-    protected int weight;
+    protected double weight;
 }

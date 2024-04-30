@@ -3,11 +3,11 @@ package main.java.creature.character;
 import main.java.creature.properties.alignment.Alignment;
 import main.java.creature.properties.attributes.Attribute;
 import main.java.creature.properties.attributes.Attributes;
-import main.java.creature.character.properties.character_class.CharacterClass;
-import main.java.creature.character.properties.character_class.CharacterClassFactory;
+import main.java.creature.character.character_class.CharacterClass;
+import main.java.creature.character.character_class.CharacterClassFactory;
 import main.java.dice.Dice;
-import main.java.creature.character.properties.race.Race;
-import main.java.creature.character.properties.race.RaceFactory;
+import main.java.creature.character.race.Race;
+import main.java.creature.character.race.RaceFactory;
 
 import java.util.HashSet;
 import java.util.Objects;

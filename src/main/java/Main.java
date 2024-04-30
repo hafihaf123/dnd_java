@@ -2,8 +2,8 @@ package main.java;
 
 import main.java.creature.character.Character;
 import main.java.creature.character.CharacterManager;
-import main.java.creature.character.properties.character_class.CharacterClassFactory;
-import main.java.creature.character.properties.race.RaceFactory;
+import main.java.creature.character.character_class.CharacterClassFactory;
+import main.java.creature.character.race.RaceFactory;
 
 import java.util.Scanner;
 

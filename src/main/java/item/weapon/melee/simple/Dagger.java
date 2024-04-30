@@ -4,10 +4,13 @@ import main.java.item.coin.Coin;
 import main.java.item.coin.CoinType;
 import main.java.damage.DamageType;
 import main.java.dice.Dice;
+import main.java.item.weapon.properties.FinesseWeapon;
+import main.java.item.weapon.properties.LightWeapon;
 import main.java.item.weapon.properties.SimpleWeapon;
 import main.java.item.weapon.Weapon;
+import main.java.item.weapon.properties.ThrownWeapon;
 
-public class Dagger extends Weapon implements SimpleWeapon {
+public class Dagger extends Weapon implements SimpleWeapon, FinesseWeapon, LightWeapon, ThrownWeapon {
 
     public Dagger() {
         this.name = "Dagger";
@@ -15,9 +18,6 @@ public class Dagger extends Weapon implements SimpleWeapon {
         this.damageType = DamageType.PIERCING;
         this.hitDice = new Dice(4);
         this.weight = 1;
-        this.isFinesse = true;
-        this.isLight = true;
-        this.isThrown = true;
         this.normalRange = 20;
         this.maxRange = 60;
     }

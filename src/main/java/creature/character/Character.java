@@ -4,16 +4,15 @@ import main.java.creature.character.properties.proficiency.Proficiencies;
 import main.java.creature.properties.alignment.Alignment;
 import main.java.creature.properties.attributes.Attribute;
 import main.java.creature.properties.attributes.Attributes;
-import main.java.creature.character.properties.character_class.CharacterClass;
+import main.java.creature.character.character_class.CharacterClass;
 import main.java.creature.Creature;
-import main.java.creature.properties.language.Language;
-import main.java.creature.character.properties.race.Race;
+import main.java.creature.character.race.Race;
 
 public class Character extends Creature {
 	private Race race;
 	private int age;
 	private CharacterClass characterClass;
-	private Proficiencies proficiencies;
+	private final Proficiencies proficiencies;
 
     public static class Builder {
 		private final String name;
