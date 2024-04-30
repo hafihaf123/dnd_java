@@ -8,25 +8,19 @@ public abstract class Armor extends Item {
     protected int baseArmorClass;
     protected int strengthRequirement = 0;
 
-    public int getArmorClass() throws IllegalArgumentException {
-        if (armorCategory == ArmorCategory.LIGHT_ARMOR || armorCategory == ArmorCategory.MEDIUM_ARMOR)
-            throw new IllegalArgumentException(STR."you must apply dexterity modifier to \{name}");
-        return baseArmorClass;
-    }
-
     public int getArmorClass(int wearerDexterityModifier) {
-        if (armorCategory == ArmorCategory.HEAVY_ARMOR || armorCategory == ArmorCategory.SHIELD)
-            return getArmorClass();
-        if (armorCategory == ArmorCategory.MEDIUM_ARMOR && wearerDexterityModifier > 2)
-            return baseArmorClass + 2;
-        return baseArmorClass + wearerDexterityModifier;
+        if (this.armorCategory == ArmorCategory.HEAVY_ARMOR || this.armorCategory == ArmorCategory.SHIELD)
+            return this.baseArmorClass;
+        if (this.armorCategory == ArmorCategory.MEDIUM_ARMOR && wearerDexterityModifier > 2)
+            return this.baseArmorClass + 2;
+        return this.baseArmorClass + wearerDexterityModifier;
     }
 
     public boolean isStrengthRequirementMet(int wearerStrength) {
-        return wearerStrength > strengthRequirement;
+        return wearerStrength > this.strengthRequirement;
     }
 
     public boolean hasStealthDisadvantage() {
-        return stealthDisadvantage;
+        return this.stealthDisadvantage;
     }
 }

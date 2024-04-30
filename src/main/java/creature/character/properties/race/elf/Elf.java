@@ -1,0 +1,22 @@
+package main.java.creature.character.properties.race.elf;
+
+import main.java.creature.properties.attributes.Attribute;
+import main.java.creature.properties.attributes.Attributes;
+import main.java.creature.properties.language.Language;
+import main.java.creature.character.properties.race.Race;
+import main.java.creature.properties.size.SizeCategory;
+
+public class Elf extends Race {
+	public Elf() {
+		this.raceName = "Elf";
+		this.ageMax = 750;
+		this.speed = 30;
+		this.size = SizeCategory.MEDIUM;
+		addLanguage(Language.ELVISH);
+	}
+	
+	@Override
+	public void applyRaceBonuses(Attributes attributes) {
+		attributes.applyBonus(Attribute.DEX, 2);
+	}
+}

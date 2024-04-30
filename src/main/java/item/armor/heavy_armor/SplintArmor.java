@@ -1,7 +1,7 @@
 package main.java.item.armor.heavy_armor;
 
-import main.java.coin.Coin;
-import main.java.coin.CoinType;
+import main.java.item.coin.Coin;
+import main.java.item.coin.CoinType;
 import main.java.item.armor.Armor;
 import main.java.item.armor.ArmorCategory;
 

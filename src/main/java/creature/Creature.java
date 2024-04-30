@@ -1,12 +1,11 @@
 package main.java.creature;
 
-import main.java.alignment.Alignment;
-import main.java.attributes.Attributes;
+import main.java.creature.properties.alignment.Alignment;
+import main.java.creature.properties.attributes.Attributes;
 import main.java.damage.DamageType;
-import main.java.language.Language;
-import main.java.size.SizeCategory;
+import main.java.creature.properties.language.Language;
+import main.java.creature.properties.size.SizeCategory;
 
-import java.util.List;
 import java.util.Set;
 
 public abstract class Creature {
@@ -25,7 +24,7 @@ public abstract class Creature {
     protected int proficiencyBonus;
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -33,7 +32,7 @@ public abstract class Creature {
     }
 
     public int getArmorClass() {
-        return armorClass;
+        return this.armorClass;
     }
 
     public void setArmorClass(int armorClass) {
@@ -41,7 +40,7 @@ public abstract class Creature {
     }
 
     public int getCurrentHP() {
-        return currentHP;
+        return this.currentHP;
     }
 
     public void heal(int hp) {
@@ -81,7 +80,7 @@ public abstract class Creature {
     }
 
     public int getSpeed() {
-        return speed;
+        return this.speed;
     }
 
     public void setSpeed(int speed) {
@@ -89,23 +88,23 @@ public abstract class Creature {
     }
 
     public Attributes getAttributes() {
-        return attributes;
+        return this.attributes;
     }
 
     public void setAttributes(Attributes attributes) {
         this.attributes = attributes;
     }
 
-    public Set<Language> getLanguages() {
-        return languages;
+    public void addLanguage(Language language) {
+        this.languages.add(language);
     }
 
-    public void setLanguages(Set<Language> languages) {
-        this.languages = languages;
+    public void removeLanguage(Language language) {
+        this.languages.remove(language);
     }
 
     public Alignment getAlignment() {
-        return alignment;
+        return this.alignment;
     }
 
     public void setAlignment(Alignment alignment) {
@@ -113,7 +112,7 @@ public abstract class Creature {
     }
 
     public SizeCategory getSize() {
-        return size;
+        return this.size;
     }
 
     public void setSize(SizeCategory size) {
@@ -121,7 +120,7 @@ public abstract class Creature {
     }
 
     public int getProficiencyBonus() {
-        return proficiencyBonus;
+        return this.proficiencyBonus;
     }
 
     public void setProficiencyBonus(int proficiencyBonus) {
