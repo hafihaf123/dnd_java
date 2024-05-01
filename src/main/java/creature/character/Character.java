@@ -112,6 +112,7 @@ public class Character extends Creature {
 					speed = '\{speed}',
 					age = '\{age}',
 					languages = '\{languages}',
+					proficiencies = '\{proficiencies}',
 					characterClass = '\{characterClass.getClassName()}',
 					current HP = '\{currentHP}',
 					max HP = '\{maxHP}',
@@ -124,5 +125,6 @@ public class Character extends Creature {
 					charisma = '\{attributes.getAttribute(Attribute.CHA)}'
 				}
 				""";
+//					armor class = '\{armorClass}',
 	}
 }
