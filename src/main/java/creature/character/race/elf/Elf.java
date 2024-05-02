@@ -1,5 +1,6 @@
 package main.java.creature.character.race.elf;
 
+import main.java.creature.character.properties.skills.Skill;
 import main.java.creature.properties.attributes.Attribute;
 import main.java.creature.properties.attributes.Attributes;
 import main.java.creature.properties.language.Language;
@@ -13,6 +14,7 @@ public class Elf extends Race {
 		this.speed = 30;
 		this.size = SizeCategory.MEDIUM;
 		addLanguage(Language.ELVISH);
+		proficiencies.addProficiency(Skill.PERCEPTION);
 	}
 	
 	@Override

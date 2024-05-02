@@ -5,6 +5,7 @@ import main.java.creature.properties.attributes.Attributes;
 import main.java.creature.properties.language.Language;
 import main.java.creature.character.race.Race;
 import main.java.creature.properties.size.SizeCategory;
+import main.java.damage.DamageType;
 
 public class Tiefling extends Race {
 	public Tiefling() {
@@ -13,6 +14,7 @@ public class Tiefling extends Race {
 		this.size = SizeCategory.MEDIUM;
 		this.speed = 30;
 		addLanguage(Language.INFERNAL);
+		addResistance(DamageType.FIRE);
 	}
 	
 	@Override

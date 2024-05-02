@@ -1,5 +1,6 @@
 package main.java.creature.character.race.half_orc;
 
+import main.java.creature.character.properties.skills.Skill;
 import main.java.creature.properties.attributes.Attribute;
 import main.java.creature.properties.attributes.Attributes;
 import main.java.creature.properties.language.Language;
@@ -13,6 +14,7 @@ public class HalfOrc extends Race {
 		this.size = SizeCategory.MEDIUM;
 		this.speed = 30;
 		addLanguage(Language.ORC);
+		this.proficiencies.addProficiency(Skill.INTIMIDATION);
 	}
 	
 	@Override
