@@ -19,8 +19,9 @@ public abstract class Creature {
     protected Set<Language> languages;
     protected Alignment alignment;
     protected SizeCategory size;
+    protected Set<DamageType> resistances;
 
-    //in progress
+    /** in progress */
     protected int proficiencyBonus;
 
     public String getName() {
@@ -41,6 +42,10 @@ public abstract class Creature {
 
     public int getCurrentHP() {
         return this.currentHP;
+    }
+
+    public void setCurrentHP(int currentHP) {
+        this.currentHP = currentHP;
     }
 
     public void heal(int hp) {
@@ -65,6 +70,10 @@ public abstract class Creature {
 
     public int getMaxHP() {
         return maxHP;
+    }
+
+    public void setMaxHP(int maxHP) {
+        this.maxHP = maxHP;
     }
 
     public void increaseMaxHP(int hp) {
@@ -93,6 +102,14 @@ public abstract class Creature {
 
     public void setAttributes(Attributes attributes) {
         this.attributes = attributes;
+    }
+
+    public Set<Language> getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(Set<Language> languages) {
+        this.languages = languages;
     }
 
     public void addLanguage(Language language) {
@@ -125,5 +142,29 @@ public abstract class Creature {
 
     public void setProficiencyBonus(int proficiencyBonus) {
         this.proficiencyBonus = proficiencyBonus;
+    }
+
+    public Set<DamageType> getResistances() {
+        return resistances;
+    }
+
+    public void setResistances(Set<DamageType> resistances) {
+        this.resistances = resistances;
+    }
+
+    public void addResistance(DamageType damageType) {
+        this.resistances.add(damageType);
+    }
+
+    public void addResistance(Set<DamageType> damageTypeSet) {
+        this.resistances.addAll(damageTypeSet);
+    }
+
+    public void removeResistance(DamageType damageType) {
+        this.resistances.remove(damageType);
+    }
+
+    public boolean hasResistance(DamageType damageType) {
+        return this.resistances.contains(damageType);
     }
 }
