@@ -1,12 +1,17 @@
 package main.java.creature.character.character_class;
 
 import main.java.creature.properties.attributes.Attribute;
+import main.java.dice.Dice;
+import main.java.item.armor.ArmorCategory;
+import main.java.item.weapon.WeaponType;
 
 public class Cleric extends CharacterClass {
 	public Cleric() {
 		this.className = "Cleric";
-		this.hitDie = 8;
+		this.hitDice = new Dice(8);
 		this.primaryAbility = new Attribute[] {Attribute.WIS};
-		this.savingThrowProficiencies = new Attribute[] {Attribute.WIS, Attribute.CHA};
+		addSavingThrowProficiency(Attribute.WIS, Attribute.CHA);
+		addArmorAndWeaponProficiency(ArmorCategory.LIGHT_ARMOR, ArmorCategory.MEDIUM_ARMOR, ArmorCategory.SHIELD, WeaponType.SIMPLE);
+		parseProficiencies();
 	}
 }
