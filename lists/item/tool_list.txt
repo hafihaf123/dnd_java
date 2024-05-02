@@ -1,0 +1,6 @@
+DisguiseKit 25 gp 3
+ForgeryKit 15 gp 5
+HerbalismKit 5 gp 3
+NavigatorsTools 25 gp 2
+PoisonersKit 50 gp 2
+ThievesTools 25 gp 1

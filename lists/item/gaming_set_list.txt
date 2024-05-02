@@ -1,0 +1,4 @@
+DiceSet 1 sp 0
+DragonchessSet 1 gp 0.5
+PlayingCardSet 5 sp 0
+ThreeDragonAnteSet 1 gp 0
