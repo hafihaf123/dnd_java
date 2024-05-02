@@ -10,18 +10,18 @@ public class Proficiencies {
         this.proficiencies = new HashSet<>();
     }
 
-    @SafeVarargs
-    public Proficiencies(Set<Proficiency>... proficiencies) {
-        this.proficiencies = new HashSet<>();
-        for (Set<Proficiency> set: proficiencies) {
-            if (!set.contains(null)) {
-                this.proficiencies.addAll(set);
-            }
-        }
-    }
-
     public void addProficiency(Proficiency proficiency) {
         this.proficiencies.add(proficiency);
+    }
+
+    public void addProficiency(Set<Proficiency> proficiencies) {
+        this.proficiencies.addAll(proficiencies);
+    }
+
+    public void addProficiency(Proficiency... proficiencies) {
+        for (Proficiency proficiency: proficiencies) {
+            addProficiency(proficiency);
+        }
     }
 
     public void removeProficiency(Proficiency proficiency) {

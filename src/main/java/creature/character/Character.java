@@ -67,7 +67,7 @@ public class Character extends Creature {
 		this.characterClass = builder.characterClass;
 		this.attributes = builder.attributes;
 		race.applyRaceBonuses(attributes);
-		this.maxHP = characterClass.getHitDie() + attributes.getModifier(Attribute.CON);
+		this.maxHP = characterClass.getHitDice().getSides() + attributes.getModifier(Attribute.CON);
 		this.currentHP = this.maxHP;
 		this.alignment = builder.alignment;
 		this.proficiencies = new Proficiencies();

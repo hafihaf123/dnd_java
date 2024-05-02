@@ -8,7 +8,7 @@ public class Attributes {
 	
 	public Attributes() {
 		attributes = new EnumMap<>(Attribute.class);
-		for (Attribute attribute : Attribute.values()) {
+		for (Attribute attribute: Attribute.values()) {
 			attributes.put(attribute, 10);
 		}
 	}

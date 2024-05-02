@@ -9,10 +9,7 @@ import main.java.dice.Dice;
 import main.java.creature.character.race.Race;
 import main.java.creature.character.race.RaceFactory;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 import static main.java.utils.InputUtils.getIntegerInput;
 import static main.java.utils.InputUtils.getStringInput;
@@ -135,12 +132,15 @@ public class CharacterManager {
 	}
 	
 	private Alignment readCharacterAlignment() {
-		System.out.println("Enter alignment: ");
-		System.out.print("Choices: ");
-		for (Alignment alignment : Alignment.values()) {
-			System.out.print(STR."\{alignment}, ");
-		}
-		String alignmentInput = scanner.nextLine().toUpperCase();
+		String alignmentInput = getStringInput(
+                STR.
+                        """
+                                Enter alignment:
+                                Choices: \{Alignment.values()}
+
+                                """,
+				scanner
+		);
 		try {
 			return Alignment.valueOf(alignmentInput);
 		} catch (IllegalArgumentException e) {
