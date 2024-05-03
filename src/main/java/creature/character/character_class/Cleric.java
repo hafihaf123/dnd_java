@@ -12,6 +12,5 @@ public class Cleric extends CharacterClass {
 		this.primaryAbility = new Attribute[] {Attribute.WIS};
 		addSavingThrowProficiency(Attribute.WIS, Attribute.CHA);
 		addArmorAndWeaponProficiency(ArmorCategory.LIGHT_ARMOR, ArmorCategory.MEDIUM_ARMOR, ArmorCategory.SHIELD, WeaponType.SIMPLE);
-		parseProficiencies();
 	}
 }

@@ -12,6 +12,5 @@ public class Barbarian extends CharacterClass {
 		this.primaryAbility = new Attribute[] {Attribute.STR};
 		addSavingThrowProficiency(Attribute.STR, Attribute.CON);
 		addArmorAndWeaponProficiency(ArmorCategory.LIGHT_ARMOR, ArmorCategory.MEDIUM_ARMOR, ArmorCategory.SHIELD, WeaponType.SIMPLE, WeaponType.MARTIAL);
-		parseProficiencies();
 	}
 }

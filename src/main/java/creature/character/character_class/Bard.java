@@ -16,6 +16,5 @@ public class Bard extends CharacterClass {
 		this.primaryAbility = new Attribute[] {Attribute.CHA};
 		addSavingThrowProficiency(Attribute.DEX, Attribute.CHA);
 		addArmorAndWeaponProficiency(ArmorCategory.LIGHT_ARMOR, WeaponType.SIMPLE, new HandCrossbow(), new Longsword(), new Rapier(), new Shortsword());
-		parseProficiencies();
 	}
 }

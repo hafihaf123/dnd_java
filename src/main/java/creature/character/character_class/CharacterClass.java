@@ -62,8 +62,17 @@ public abstract class CharacterClass {
 	}
 
 	public void parseProficiencies() {
-		this.proficiencies = new Proficiencies();
-		savingThrowProficiencies.forEach(this.proficiencies::addProficiency);
+		this.proficiencies.addProficiency(savingThrowProficiencies);
 		this.proficiencies.addProficiency(armorAndWeaponProficiencies);
+	}
+
+	public Proficiencies getProficienciesObject() {
+		parseProficiencies();
+		return proficiencies;
+	}
+
+	public Set<Proficiency> getProficienciesSet() {
+		parseProficiencies();
+		return this.proficiencies.getProficiencies();
 	}
 }

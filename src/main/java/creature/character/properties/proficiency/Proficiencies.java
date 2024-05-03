@@ -14,7 +14,7 @@ public class Proficiencies {
         this.proficiencies.add(proficiency);
     }
 
-    public void addProficiency(Set<Proficiency> proficiencies) {
+    public <T extends Proficiency> void addProficiency(Set<T> proficiencies) {
         this.proficiencies.addAll(proficiencies);
     }
 
@@ -30,5 +30,9 @@ public class Proficiencies {
 
     public boolean hasProficiency(Proficiency proficiency) {
         return this.proficiencies.contains(proficiency);
+    }
+
+    public Set<Proficiency> getProficiencies() {
+        return this.proficiencies;
     }
 }
