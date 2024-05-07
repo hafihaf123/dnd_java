@@ -1,5 +1,6 @@
-package main.java.creature.character.character_class;
+package main.java.creature.character.character_class.subclasses;
 
+import main.java.creature.character.character_class.CharacterClass;
 import main.java.creature.properties.attributes.Attribute;
 import main.java.dice.Dice;
 import main.java.item.armor.ArmorCategory;
