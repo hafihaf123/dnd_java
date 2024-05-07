@@ -2,52 +2,52 @@ Druid
 8
 Wisdom
 Intelligence,Wisdom
-LightArmor,MediumArmor,Shield,Club,Dagger,Dart,Javelin,Mace,Quarterstaff,Scimitar,Sickle,Sling,Spear
+Light_Armor,Medium_Armor,Shield,Club,Dagger,Dart,Javelin,Mace,Quarterstaff,Scimitar,Sickle,Sling,Spear
 
 Fighter
 10
 Strength,Dexterity
 Strength,Constitution
-LightArmor,MediumArmor,HeavyArmor,Shield,SimpleWeapon,MartialWeapon
+Light_Armor,Medium_Armor,Heavy_Armor,Shield,Simple_Weapon,Martial_Weapon
 
 Monk
 8
 Dexterity,Wisdom
 Strength,Dexterity
-SimpleWeapon,Shortsword
+Simple_Weapon,Shortsword
 
 Paladin
 10
 Strength,Charisma
 Wisdom,Charisma
-LightArmor,MediumArmor,HeavyArmor,Shield,SimpleWeapon,MartialWeapon
+Light_Armor,Medium_Armor,Heavy_Armor,Shield,Simple_Weapon,Martial_Weapon
 
 Ranger
 10
 Dexterity,Wisdom
 Strength,Dexterity
-LightArmor,MediumArmor,Shield,SimpleWeapon,MartialWeapon
+Light_Armor,Medium_Armor,Shield,Simple_Weapon,Martial_Weapon
 
 Rogue
 8
 Dexterity
 Dexterity,Intelligence
-LightArmor,SimpleWeapon,CrossbowHand,Longsword,Rapier,Shortsword
+Light_Armor,Simple_Weapon,HandCrossbow,Longsword,Rapier,Shortsword
 
 Sorcerer
 6
 Charisma
 Constitution,Charisma
-Dagger,Dart,Sling,Quarterstaff,CrossbowLight
+Dagger,Dart,Sling,Quarterstaff,LightCrossbow
 
 Warlock
 8
 Charisma
 Wisdom,Charisma
-LightArmor,SimpleWeapon
+Light_Armor,Simple_Weapon
 
 Wizard
 6
 Intelligence
 Intelligence,Wisdom
-Dagger,Dart,Sling,Quarterstaff,CrossbowLight
+Dagger,Dart,Sling,Quarterstaff,LightCrossbow

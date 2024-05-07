@@ -61,11 +61,7 @@ public class CharacterClassSubclassFileCreator extends CharacterClass implements
 
     @Override
     public String createFileContent() {
-        StringBuilder armorAndWeaponProficienciesNames = new StringBuilder();
-        this.armorAndWeaponProficienciesNames.forEach(
-                it -> armorAndWeaponProficienciesNames.append(STR.", \{it}")
-        );
-        armorAndWeaponProficienciesNames.delete(0, 2);
+        String armorAndWeaponProficienciesNames = getArmorAndWeaponProficienciesNames();
         return STR.
                 """
                 package \{srcPath.relativize(newDirPath).toString().replace('/', '.')};
@@ -75,6 +71,10 @@ public class CharacterClassSubclassFileCreator extends CharacterClass implements
                 import main.java.dice.Dice;
                 import main.java.item.armor.ArmorCategory;
                 import main.java.item.weapon.WeaponType;
+                import main.java.item.weapon.melee.simple.*;
+                import main.java.item.weapon.melee.martial.*;
+                import main.java.item.weapon.ranged.simple.*;
+                import main.java.item.weapon.ranged.martial.*;
 
                 public class \{className} extends CharacterClass {
                     public \{className}() {
@@ -86,5 +86,23 @@ public class CharacterClassSubclassFileCreator extends CharacterClass implements
                     }
                 }
                 """;
+    }
+
+    private String getArmorAndWeaponProficienciesNames() {
+        StringBuilder armorAndWeaponProficienciesNames = new StringBuilder();
+        this.armorAndWeaponProficienciesNames.forEach(
+                it -> {
+                    armorAndWeaponProficienciesNames.append(", ");
+                    if (it.contains("Armor") || it.contains("Shield")) {
+                        armorAndWeaponProficienciesNames.append(STR."ArmorCategory.\{it.toUpperCase()}");
+                    } else if (it.contains("Weapon")) {
+                        armorAndWeaponProficienciesNames.append(STR."WeaponType.\{it.substring(0, it.indexOf('_')).toUpperCase()}");
+                    } else {
+                        armorAndWeaponProficienciesNames.append(STR."new \{it}()");
+                    }
+                }
+        );
+        armorAndWeaponProficienciesNames.delete(0, 2);
+        return armorAndWeaponProficienciesNames.toString();
     }
 }
