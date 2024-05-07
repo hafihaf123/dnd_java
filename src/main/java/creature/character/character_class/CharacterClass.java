@@ -14,7 +14,7 @@ public abstract class CharacterClass {
 	protected Dice hitDice;
 	protected Attribute[] primaryAbility;
 	protected Set<Attribute> savingThrowProficiencies = new HashSet<>();
-	protected Set<Proficiency> armorAndWeaponProficiencies = new HashSet<>();
+	protected final Set<Proficiency> armorAndWeaponProficiencies = new HashSet<>();
 	protected Proficiencies proficiencies;
 
 	public String getClassName() {

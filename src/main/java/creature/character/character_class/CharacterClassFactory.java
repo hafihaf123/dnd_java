@@ -1,5 +1,9 @@
 package main.java.creature.character.character_class;
 
+import main.java.creature.character.character_class.subclasses.Barbarian;
+import main.java.creature.character.character_class.subclasses.Bard;
+import main.java.creature.character.character_class.subclasses.Cleric;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
