@@ -23,13 +23,23 @@ public class Dwarf extends Race {
 		this.speed = 25;
 		addLanguage(Language.DWARVISH);
 		addResistance(DamageType.POISON);
-		Proficiency artisansToolsProficiency = InputUtils.chooseOne("Choose one proficiency with Artisan's tools of your choice", new SmithsTools(), new BrewersSupplies(), new MasonsTools());
 		this.proficiencies.addProficiency(new Battleaxe(), new Handaxe(), new Warhammer());
-		this.proficiencies.addProficiency(artisansToolsProficiency);
 	}
 	
 	@Override
 	public void applyRaceBonuses(Attributes attributes) {
 		attributes.applyBonus(Attribute.CON, 2);
+	}
+
+	@Override
+	public void createFromInput() {
+		super.createFromInput();
+		Proficiency artisansToolsProficiency = InputUtils.chooseOne(
+				"Choose one proficiency with Artisan's tools of your choice",
+				new SmithsTools(),
+				new BrewersSupplies(),
+				new MasonsTools()
+		);
+		this.proficiencies.addProficiency(artisansToolsProficiency);
 	}
 }

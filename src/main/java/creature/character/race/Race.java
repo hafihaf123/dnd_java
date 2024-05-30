@@ -20,6 +20,8 @@ public abstract class Race {
 
 	//ability score increase
 	public abstract void applyRaceBonuses(Attributes attributes);
+
+	public void createFromInput() {}
 	
 	public Race() {
 		addLanguage(Language.COMMON);

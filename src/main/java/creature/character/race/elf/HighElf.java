@@ -11,13 +11,26 @@ import main.java.utils.InputUtils;
 public class HighElf extends Elf {
 	public HighElf() {
 		this.raceName = "High Elf";
-		this.proficiencies.addProficiency(new Longsword(), new Shortsword(), new Longbow(), new Shortbow());
-		addLanguage(InputUtils.chooseExtraEnum("Choose one extra language", getLanguages()));
+		this.proficiencies.addProficiency(
+				new Longsword(),
+				new Shortsword(),
+				new Longbow(),
+				new Shortbow()
+		);
 	}
 	
 	@Override
 	public void applyRaceBonuses(Attributes attributes) {
 		super.applyRaceBonuses(attributes);
 		attributes.applyBonus(Attribute.INT, 1);
+	}
+
+	@Override
+	public void createFromInput() {
+		super.createFromInput();
+		addLanguage(InputUtils.chooseExtraEnum(
+				"Choose one extra language",
+				getLanguages()
+		));
 	}
 }

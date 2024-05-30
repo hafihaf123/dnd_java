@@ -19,20 +19,27 @@ public class HalfElf extends Race {
 		this.size = SizeCategory.MEDIUM;
 		this.speed = 30;
 		addLanguage(Language.ELVISH);
-		addLanguage(InputUtils.chooseExtraEnum("Choose an extra language", this.languages));
-		Skill skill1 = InputUtils.chooseOne("Choose a skill to be proficient in", Skill.values());
-		Skill skill2 = InputUtils.chooseExtraEnum("Choose one extra skill to be proficient in", Collections.singleton(skill1));
-		this.proficiencies.addProficiency(skill1, skill2);
 	}
 	
 	@Override
 	public void applyRaceBonuses(Attributes attributes) {
         attributes.applyBonus(Attribute.CHA, 1);
+
 		Set<Attribute> extraAttributes = new HashSet<>();
 		extraAttributes.add(Attribute.CHA);
-		extraAttributes.add(InputUtils.chooseExtraEnum("Choose another extra attribute to increase by 1", extraAttributes));
-		extraAttributes.add(InputUtils.chooseExtraEnum("Choose another extra attribute to increase by 1", extraAttributes));
+		for (int i = 0; i < 2; i++) {
+			extraAttributes.add(InputUtils.chooseExtraEnum("Choose another extra attribute to increase by 1", extraAttributes));
+		}
 		for (Attribute attribute: extraAttributes)
 			attributes.applyBonus(attribute, 1);
+	}
+
+	@Override
+	public void createFromInput() {
+		super.createFromInput();
+		addLanguage(InputUtils.chooseExtraEnum("Choose an extra language", this.languages));
+		Skill skill1 = InputUtils.chooseOne("Choose a skill to be proficient in", Skill.values());
+		Skill skill2 = InputUtils.chooseExtraEnum("Choose one extra skill to be proficient in", Collections.singleton(skill1));
+		this.proficiencies.addProficiency(skill1, skill2);
 	}
 }

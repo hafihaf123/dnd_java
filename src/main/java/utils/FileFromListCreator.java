@@ -16,7 +16,7 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class FileFromListCreator {
-    private static final Path pathToListFile = Path.of("/home/user1/IdeaProjects/dnd_java/lists/character_class/character_class_list.txt");
+    private static final Path pathToListFile = Path.of("/home/user1/IdeaProjects/dnd_java/documents/lists/character_class/character_class_list.txt");
     /** relative to the absolute path of the superclass directory */
     private static final String relativeDirPathName = "subclasses";
 

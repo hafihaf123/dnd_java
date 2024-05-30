@@ -12,7 +12,6 @@ public class Human extends Race {
 		this.ageMax = 100;
 		this.size = SizeCategory.MEDIUM;
 		this.speed = 30;
-		addLanguage(InputUtils.chooseExtraEnum("Choose an extra language", this.languages));
 	}
 	
 	@Override
@@ -20,5 +19,11 @@ public class Human extends Race {
 		for (Attribute attribute : Attribute.values()) {
 			attributes.applyBonus(attribute, 1);
 		}
+	}
+
+	@Override
+	public void createFromInput() {
+		super.createFromInput();
+		addLanguage(InputUtils.chooseExtraEnum("Choose an extra language", this.languages));
 	}
 }

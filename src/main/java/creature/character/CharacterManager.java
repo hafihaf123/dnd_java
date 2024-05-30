@@ -132,19 +132,18 @@ public class CharacterManager {
 	}
 	
 	private Alignment readCharacterAlignment() {
-		String alignmentInput = getStringInput(
-                STR.
-                        """
-                                Enter alignment:
-                                Choices: \{Alignment.values()}
+		System.out.print("Enter alignment: (");
+		for (Alignment alignment: Alignment.values())
+			System.out.print(STR."\{alignment.toString()}, ");
 
-                                """,
+		String alignmentInput = getStringInput(
+                ")\n",
 				scanner
 		);
 		try {
-			return Alignment.valueOf(alignmentInput);
+			return Alignment.valueOf(alignmentInput.toUpperCase());
 		} catch (IllegalArgumentException e) {
-			System.out.println("Invalid language choice.");
+			System.out.println("Invalid alignment choice.");
 			return readCharacterAlignment();
 		}
 	}
