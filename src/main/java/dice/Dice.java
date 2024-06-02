@@ -35,4 +35,9 @@ public class Dice {
 			throw new IllegalArgumentException("The number of sides must be greater than zero");
 		this.sides = sides;
 	}
+
+	@Override
+	public String toString() {
+		return STR."d\{sides}";
+	}
 }

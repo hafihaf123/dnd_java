@@ -13,6 +13,19 @@ public class Attributes {
 		}
 	}
 
+	public Attributes(int str, int dex, int con, int intelligence, int wis, int cha) {
+		attributes = new EnumMap<>(Attribute.class);
+		for (Attribute attribute: Attribute.values()) {
+			attributes.put(attribute, 10);
+		}
+		setAttribute(Attribute.STR, str);
+		setAttribute(Attribute.DEX, dex);
+		setAttribute(Attribute.CON, con);
+		setAttribute(Attribute.INT, intelligence);
+		setAttribute(Attribute.WIS, wis);
+		setAttribute(Attribute.CHA, cha);
+	}
+
 	public int getModifier(Attribute attribute) {
 		return (attributes.get(attribute) - 10)/2;
 	}
