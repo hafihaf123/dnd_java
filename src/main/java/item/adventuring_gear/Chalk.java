@@ -1,13 +1,13 @@
 package main.java.item.adventuring_gear;
 
 import main.java.item.Item;
-import main.java.item.coin.Coin;
-import main.java.item.coin.CoinType;
+import main.java.units.coin.Coin;
+import main.java.units.coin.CoinUnits;
 
 public class Chalk extends Item {
     public Chalk() {
         this.name = "Chalk";
-        this.cost = new Coin(CoinType.CP, 1);
+        this.cost = new Coin(CoinUnits.CP, 1);
         this.weight = 0.0;
     }
 }

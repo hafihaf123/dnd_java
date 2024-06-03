@@ -1,8 +1,8 @@
 package main.java.utils.subclass_creators;
 
 import main.java.item.Item;
-import main.java.item.coin.Coin;
-import main.java.item.coin.CoinType;
+import main.java.units.coin.Coin;
+import main.java.units.coin.CoinUnits;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -26,7 +26,7 @@ public class ItemSubclassFileCreator extends Item implements SubclassFileCreator
     ) {
         this.name = name;
         this.coinType = coinType;
-        this.cost = new Coin(CoinType.valueOf(coinType), cost);
+        this.cost = new Coin(CoinUnits.valueOf(coinType), cost);
         this.weight = weight;
         this.relativeDirPath = absoluteItemDirPath.resolve(relativeDirName);
         this.newFilePath = relativeDirPath.resolve(STR."\{name}.java");
@@ -57,13 +57,13 @@ public class ItemSubclassFileCreator extends Item implements SubclassFileCreator
                package main.java.item.\{absoluteItemDirPath.relativize(relativeDirPath).toString().replace('/', '.')};
 
                import main.java.item.Item;
-               import main.java.item.coin.Coin;
-               import main.java.item.coin.CoinType;
+               import main.java.units.coin.Coin;
+               import main.java.units.coin.CoinUnits;
 
                public class \{this.name} extends Item {
                    public \{this.name}() {
                        this.name = "\{this.name}";
-                       this.cost = new Coin(CoinType.\{this.coinType}, \{(int)this.cost.getAmount(CoinType.valueOf(this.coinType))});
+                       this.cost = new Coin(CoinType.\{this.coinType}, \{(int)this.cost.getAmount(CoinUnits.valueOf(this.coinType))});
                        this.weight = \{this.weight};
                    }
                }

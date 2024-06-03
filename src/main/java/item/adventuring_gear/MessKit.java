@@ -1,13 +1,13 @@
 package main.java.item.adventuring_gear;
 
 import main.java.item.Item;
-import main.java.item.coin.Coin;
-import main.java.item.coin.CoinType;
+import main.java.units.coin.Coin;
+import main.java.units.coin.CoinUnits;
 
 public class MessKit extends Item {
     public MessKit() {
         this.name = "MessKit";
-        this.cost = new Coin(CoinType.SP, 2);
+        this.cost = new Coin(CoinUnits.SP, 2);
         this.weight = 1.0;
     }
 }

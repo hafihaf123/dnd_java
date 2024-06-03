@@ -48,11 +48,11 @@ public class RaceFactory {
 	}
 
 	public void addRace(Race race) {
-		this.raceMap.put(race.getRaceName(), () -> race);
+		this.raceMap.put(race.getRaceName().toLowerCase(), () -> race);
 	}
 	
 	public Race getRace(String raceName) throws IllegalArgumentException {
-		Supplier<Race> race = this.raceMap.get(raceName);
+		Supplier<Race> race = this.raceMap.get(raceName.toLowerCase());
 		if (race != null) {
 			return race.get();
 		}

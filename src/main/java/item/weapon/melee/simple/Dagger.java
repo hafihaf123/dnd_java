@@ -1,7 +1,7 @@
 package main.java.item.weapon.melee.simple;
 
-import main.java.item.coin.Coin;
-import main.java.item.coin.CoinType;
+import main.java.units.coin.Coin;
+import main.java.units.coin.CoinUnits;
 import main.java.damage.DamageType;
 import main.java.dice.Dice;
 import main.java.item.weapon.properties.FinesseWeapon;
@@ -14,7 +14,7 @@ public class Dagger extends Weapon implements SimpleWeapon, FinesseWeapon, Light
 
     public Dagger() {
         this.name = "Dagger";
-        this.cost = new Coin(CoinType.GP, 2);
+        this.cost = new Coin(CoinUnits.GP, 2);
         this.damageType = DamageType.PIERCING;
         this.hitDice = new Dice(4);
         this.weight = 1;
