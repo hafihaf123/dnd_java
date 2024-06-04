@@ -4,6 +4,8 @@ import main.java.units.coin.Coin;
 import main.java.units.coin.CoinUnits;
 import main.java.item.armor.Armor;
 import main.java.item.armor.ArmorCategory;
+import main.java.units.weight.Weight;
+import main.java.units.weight.WeightUnits;
 
 public class HideArmor extends Armor {
     public HideArmor() {
@@ -12,6 +14,6 @@ public class HideArmor extends Armor {
         this.cost = new Coin(CoinUnits.GP, 10);
         this.baseArmorClass = 12;
         this.stealthDisadvantage = false;
-        this.weight = 12;
+        this.weight = new Weight(WeightUnits.LB, 12);
     }
 }

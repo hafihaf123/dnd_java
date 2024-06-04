@@ -3,6 +3,8 @@ package main.java.utils.subclass_creators;
 import main.java.item.Item;
 import main.java.units.coin.Coin;
 import main.java.units.coin.CoinUnits;
+import main.java.units.weight.Weight;
+import main.java.units.weight.WeightUnits;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -27,7 +29,7 @@ public class ItemSubclassFileCreator extends Item implements SubclassFileCreator
         this.name = name;
         this.coinType = coinType;
         this.cost = new Coin(CoinUnits.valueOf(coinType), cost);
-        this.weight = weight;
+        this.weight = new Weight(WeightUnits.LB, weight);
         this.relativeDirPath = absoluteItemDirPath.resolve(relativeDirName);
         this.newFilePath = relativeDirPath.resolve(STR."\{name}.java");
     }
@@ -64,7 +66,7 @@ public class ItemSubclassFileCreator extends Item implements SubclassFileCreator
                    public \{this.name}() {
                        this.name = "\{this.name}";
                        this.cost = new Coin(CoinType.\{this.coinType}, \{(int)this.cost.getAmount(CoinUnits.valueOf(this.coinType))});
-                       this.weight = \{this.weight};
+                       this.weight = new Weight(WeightUnits.LB, \{this.weight});
                    }
                }
                """;

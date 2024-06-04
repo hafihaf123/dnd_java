@@ -4,6 +4,8 @@ import main.java.units.coin.Coin;
 import main.java.units.coin.CoinUnits;
 import main.java.item.armor.Armor;
 import main.java.item.armor.ArmorCategory;
+import main.java.units.weight.Weight;
+import main.java.units.weight.WeightUnits;
 
 public class ChainMailArmor extends Armor {
     public ChainMailArmor() {
@@ -13,6 +15,6 @@ public class ChainMailArmor extends Armor {
         this.baseArmorClass = 16;
         this.strengthRequirement = 13;
         this.stealthDisadvantage = true;
-        this.weight = 55;
+        this.weight = new Weight(WeightUnits.LB, 55);
     }
 }

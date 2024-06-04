@@ -4,6 +4,8 @@ import main.java.item.Item;
 
 import java.util.ArrayList;
 import java.util.List;
+import main.java.units.weight.Weight;
+import main.java.units.weight.WeightUnits;
 
 public abstract class Container {
 	private final List<Item> items;

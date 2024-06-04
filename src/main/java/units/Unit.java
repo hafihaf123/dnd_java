@@ -1,21 +1,21 @@
 package main.java.units;
 
 public abstract class Unit <T extends EnumUnit> {
-	private float amount;
+	private double amount;
 	
-	public Unit(T enumUnit, float amount) {
+	public Unit(T enumUnit, double amount) {
 		this.amount = amount * enumUnit.getBasicUnit();
 	}
 	
-	public float getAmount(T enumUnit) {
+	public double getAmount(T enumUnit) {
 		return amount /  enumUnit.getBasicUnit();
 	}
 	
-	public void setAmount(T enumUnit, float amount) {
+	public void setAmount(T enumUnit, double amount) {
 		this.amount = amount * enumUnit.getBasicUnit();
 	}
 	
-	public void addAmount(T enumUnit, float amount) {
+	public void addAmount(T enumUnit, double amount) {
 		this.amount += amount * enumUnit.getBasicUnit();
 	}
 	

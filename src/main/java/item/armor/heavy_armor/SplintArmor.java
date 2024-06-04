@@ -4,6 +4,8 @@ import main.java.units.coin.Coin;
 import main.java.units.coin.CoinUnits;
 import main.java.item.armor.Armor;
 import main.java.item.armor.ArmorCategory;
+import main.java.units.weight.Weight;
+import main.java.units.weight.WeightUnits;
 
 public class SplintArmor extends Armor {
     public SplintArmor() {
@@ -13,6 +15,6 @@ public class SplintArmor extends Armor {
         this.baseArmorClass = 17;
         this.strengthRequirement = 15;
         this.stealthDisadvantage = true;
-        this.weight = 60;
+        this.weight = new Weight(WeightUnits.LB, 60);
     }
 }

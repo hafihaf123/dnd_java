@@ -4,6 +4,8 @@ import main.java.units.coin.Coin;
 import main.java.units.coin.CoinUnits;
 import main.java.item.armor.Armor;
 import main.java.item.armor.ArmorCategory;
+import main.java.units.weight.Weight;
+import main.java.units.weight.WeightUnits;
 
 public class ScaleMailArmor extends Armor {
     public ScaleMailArmor() {
@@ -12,6 +14,6 @@ public class ScaleMailArmor extends Armor {
         this.cost = new Coin(CoinUnits.GP, 50);
         this.baseArmorClass = 14;
         this.stealthDisadvantage = true;
-        this.weight = 45;
+        this.weight = new Weight(WeightUnits.LB, 45);
     }
 }

@@ -4,6 +4,8 @@ import main.java.units.coin.Coin;
 import main.java.units.coin.CoinUnits;
 import main.java.item.armor.Armor;
 import main.java.item.armor.ArmorCategory;
+import main.java.units.weight.Weight;
+import main.java.units.weight.WeightUnits;
 
 public class PlateArmor extends Armor {
     public PlateArmor() {
@@ -13,6 +15,6 @@ public class PlateArmor extends Armor {
         this.baseArmorClass = 18;
         this.strengthRequirement = 15;
         this.stealthDisadvantage = true;
-        this.weight = 65;
+        this.weight = new Weight(WeightUnits.LB, 65);
     }
 }

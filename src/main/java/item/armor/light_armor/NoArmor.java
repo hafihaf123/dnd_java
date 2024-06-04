@@ -12,6 +12,6 @@ public class NoArmor extends Armor {
 		this.cost = new Coin(CoinUnits.CP, 0);
 		this.baseArmorClass = 10;
 		this.stealthDisadvantage = false;
-		this.weight = 0;
+		this.weight = new Weight(WeightUnits.LB, 0);
 	}
 }
