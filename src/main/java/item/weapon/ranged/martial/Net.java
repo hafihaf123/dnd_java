@@ -2,6 +2,8 @@ package main.java.item.weapon.ranged.martial;
 
 import main.java.units.coin.Coin;
 import main.java.units.coin.CoinUnits;
+import main.java.units.length.Length;
+import main.java.units.length.LengthUnits;
 import main.java.units.weight.Weight;
 import main.java.units.weight.WeightUnits;
 import main.java.item.weapon.Weapon;
@@ -16,7 +18,7 @@ public class Net extends Weapon implements MartialWeapon, SpecialWeapon, ThrownW
 		this.damageType = null;
 		this.hitDice = null;
 		this.weight = new Weight(WeightUnits.LB, 3);
-		this.normalRange = 5;
-		this.maxRange = 15;
+		this.normalRange = new Length(LengthUnits.FT, 5);
+		this.maxRange = new Length(LengthUnits.FT, 15);
 	}
 }

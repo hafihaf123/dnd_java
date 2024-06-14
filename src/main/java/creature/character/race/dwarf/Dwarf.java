@@ -13,6 +13,8 @@ import main.java.item.tool.artisans_tools.SmithsTools;
 import main.java.item.weapon.melee.martial.Battleaxe;
 import main.java.item.weapon.melee.martial.Warhammer;
 import main.java.item.weapon.melee.simple.Handaxe;
+import main.java.units.length.Length;
+import main.java.units.length.LengthUnits;
 import main.java.utils.InputUtils;
 
 public class Dwarf extends Race {
@@ -20,7 +22,7 @@ public class Dwarf extends Race {
 		this.raceName = "Dwarf";
 		this.ageMax = 350;
 		this.size = SizeCategory.MEDIUM;
-		this.speed = 25;
+		this.speed = new Length(LengthUnits.FT, 25);
 		addLanguage(Language.DWARVISH);
 		addResistance(DamageType.POISON);
 		this.proficiencies.addProficiency(new Battleaxe(), new Handaxe(), new Warhammer());

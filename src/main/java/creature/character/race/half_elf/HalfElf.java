@@ -6,6 +6,8 @@ import main.java.creature.properties.attributes.Attributes;
 import main.java.creature.properties.language.Language;
 import main.java.creature.character.race.Race;
 import main.java.creature.properties.size.SizeCategory;
+import main.java.units.length.Length;
+import main.java.units.length.LengthUnits;
 import main.java.utils.InputUtils;
 
 import java.util.Collections;
@@ -17,7 +19,7 @@ public class HalfElf extends Race {
 		this.raceName = "Half-Elf";
 		this.ageMax = 200;
 		this.size = SizeCategory.MEDIUM;
-		this.speed = 30;
+		this.speed = new Length(LengthUnits.FT, 30);
 		addLanguage(Language.ELVISH);
 	}
 	

@@ -5,6 +5,7 @@ import main.java.creature.properties.attributes.Attributes;
 import main.java.damage.DamageType;
 import main.java.creature.properties.language.Language;
 import main.java.creature.properties.size.SizeCategory;
+import main.java.units.length.Length;
 
 import java.util.Set;
 
@@ -13,8 +14,8 @@ public abstract class Creature {
     protected int armorClass;
     protected int maxHP;
     protected int currentHP;
-    /** in feet */
-    protected int speed;
+    /** per turn */
+    protected Length speed;
     protected Attributes attributes;
     protected Set<Language> languages;
     protected Alignment alignment;
@@ -88,11 +89,11 @@ public abstract class Creature {
             this.currentHP = this.maxHP;
     }
 
-    public int getSpeed() {
+    public Length getSpeed() {
         return this.speed;
     }
 
-    public void setSpeed(int speed) {
+    public void setSpeed(Length speed) {
         this.speed = speed;
     }
 

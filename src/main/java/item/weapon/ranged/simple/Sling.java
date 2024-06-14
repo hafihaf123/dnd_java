@@ -7,6 +7,8 @@ import main.java.item.weapon.properties.AmmunitionWeapon;
 import main.java.item.weapon.properties.SimpleWeapon;
 import main.java.units.coin.Coin;
 import main.java.units.coin.CoinUnits;
+import main.java.units.length.Length;
+import main.java.units.length.LengthUnits;
 import main.java.units.weight.Weight;
 import main.java.units.weight.WeightUnits;
 
@@ -17,7 +19,7 @@ public class Sling extends Weapon implements SimpleWeapon, AmmunitionWeapon {
         this.damageType = DamageType.BLUDGEONING;
         this.hitDice = new Dice(4);
         this.weight = new Weight(WeightUnits.LB, 0);
-        this.normalRange = 30;
-        this.maxRange = 120;
+        this.normalRange = new Length(LengthUnits.FT, 30);
+        this.maxRange = new Length(LengthUnits.FT, 120);
     }
 }

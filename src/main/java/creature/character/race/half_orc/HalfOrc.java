@@ -6,13 +6,15 @@ import main.java.creature.properties.attributes.Attributes;
 import main.java.creature.properties.language.Language;
 import main.java.creature.character.race.Race;
 import main.java.creature.properties.size.SizeCategory;
+import main.java.units.length.Length;
+import main.java.units.length.LengthUnits;
 
 public class HalfOrc extends Race {
 	public HalfOrc() {
 		this.raceName = "Half-Orc";
 		this.ageMax = 75;
 		this.size = SizeCategory.MEDIUM;
-		this.speed = 30;
+		this.speed = new Length(LengthUnits.FT, 30);
 		addLanguage(Language.ORC);
 		this.proficiencies.addProficiency(Skill.INTIMIDATION);
 	}

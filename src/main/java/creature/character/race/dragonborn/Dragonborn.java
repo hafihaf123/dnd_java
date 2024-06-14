@@ -5,13 +5,15 @@ import main.java.creature.properties.attributes.Attributes;
 import main.java.creature.properties.language.Language;
 import main.java.creature.character.race.Race;
 import main.java.creature.properties.size.SizeCategory;
+import main.java.units.length.Length;
+import main.java.units.length.LengthUnits;
 
 public class Dragonborn extends Race {
 	public Dragonborn() {
 		this.raceName = "Dragonborn";
 		this.ageMax = 80;
 		this.size = SizeCategory.MEDIUM;
-		this.speed = 30;
+		this.speed = new Length(LengthUnits.FT, 30);
 		addLanguage(Language.DRACONIC);
 	}
 	

@@ -6,12 +6,14 @@ import main.java.creature.properties.attributes.Attributes;
 import main.java.creature.properties.language.Language;
 import main.java.creature.character.race.Race;
 import main.java.creature.properties.size.SizeCategory;
+import main.java.units.length.Length;
+import main.java.units.length.LengthUnits;
 
 public class Elf extends Race {
 	public Elf() {
 		this.raceName = "Elf";
 		this.ageMax = 750;
-		this.speed = 30;
+		this.speed = new Length(LengthUnits.FT, 30);
 		this.size = SizeCategory.MEDIUM;
 		addLanguage(Language.ELVISH);
 		proficiencies.addProficiency(Skill.PERCEPTION);

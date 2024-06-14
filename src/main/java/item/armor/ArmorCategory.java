@@ -5,6 +5,5 @@ import main.java.creature.character.properties.proficiency.Proficiency;
 public enum ArmorCategory implements Proficiency {
     LIGHT_ARMOR,
     MEDIUM_ARMOR,
-    HEAVY_ARMOR,
-    SHIELD
+    HEAVY_ARMOR
 }

@@ -9,7 +9,7 @@ public abstract class Armor extends Item {
     protected int strengthRequirement = 0;
 
     public int getArmorClass(int wearerDexterityModifier) {
-        if (this.armorCategory == ArmorCategory.HEAVY_ARMOR || this.armorCategory == ArmorCategory.SHIELD)
+        if (this.armorCategory == ArmorCategory.HEAVY_ARMOR)
             return this.baseArmorClass;
         if (this.armorCategory == ArmorCategory.MEDIUM_ARMOR && wearerDexterityModifier > 2)
             return this.baseArmorClass + 2;

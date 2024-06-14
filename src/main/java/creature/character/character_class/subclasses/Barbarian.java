@@ -4,6 +4,7 @@ import main.java.creature.character.character_class.CharacterClass;
 import main.java.creature.properties.attributes.Attribute;
 import main.java.dice.Dice;
 import main.java.item.armor.ArmorCategory;
+import main.java.item.armor.shield.Shield;
 import main.java.item.weapon.WeaponType;
 
 public class Barbarian extends CharacterClass {
@@ -12,6 +13,6 @@ public class Barbarian extends CharacterClass {
 		this.hitDice = new Dice(12);
 		this.primaryAbility = new Attribute[] {Attribute.STR};
 		addSavingThrowProficiency(Attribute.STR, Attribute.CON);
-		addArmorAndWeaponProficiency(ArmorCategory.LIGHT_ARMOR, ArmorCategory.MEDIUM_ARMOR, ArmorCategory.SHIELD, WeaponType.SIMPLE, WeaponType.MARTIAL);
+		addArmorAndWeaponProficiency(ArmorCategory.LIGHT_ARMOR, ArmorCategory.MEDIUM_ARMOR, new Shield(), WeaponType.SIMPLE, WeaponType.MARTIAL);
 	}
 }

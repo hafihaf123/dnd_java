@@ -8,6 +8,8 @@ import main.java.item.weapon.properties.LoadingWeapon;
 import main.java.item.weapon.properties.MartialWeapon;
 import main.java.units.coin.Coin;
 import main.java.units.coin.CoinUnits;
+import main.java.units.length.Length;
+import main.java.units.length.LengthUnits;
 import main.java.units.weight.Weight;
 import main.java.units.weight.WeightUnits;
 
@@ -18,7 +20,7 @@ public class Blowgun extends Weapon implements MartialWeapon, AmmunitionWeapon, 
 		this.damageType = DamageType.PIERCING;
 		this.hitDice = new Dice(1);
 		this.weight = new Weight(WeightUnits.LB, 1);
-		this.normalRange = 25;
-		this.maxRange = 100;
+		this.normalRange = new Length(LengthUnits.FT, 25);
+		this.maxRange = new Length(LengthUnits.FT, 100);
 	}
 }

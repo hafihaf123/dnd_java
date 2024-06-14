@@ -5,6 +5,7 @@ import main.java.creature.properties.attributes.Attributes;
 import main.java.creature.properties.language.Language;
 import main.java.creature.properties.size.SizeCategory;
 import main.java.damage.DamageType;
+import main.java.units.length.Length;
 
 import java.util.*;
 
@@ -12,8 +13,8 @@ public abstract class Race {
 	protected String raceName;
 	protected int ageMax;
 	protected SizeCategory size;
-	/** in feet */
-	protected int speed;
+	/** per turn */
+	protected Length speed;
 	protected final Set<Language> languages = new HashSet<>();
 	protected final Proficiencies proficiencies = new Proficiencies();
 	protected final Set<DamageType> resistances = new HashSet<>();
@@ -35,7 +36,7 @@ public abstract class Race {
 		return ageMax;
 	}
 	
-	public int getSpeed() {
+	public Length getSpeed() {
 		return speed;
 	}
 	

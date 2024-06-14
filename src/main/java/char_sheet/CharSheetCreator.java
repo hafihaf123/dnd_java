@@ -2,6 +2,7 @@ package main.java.char_sheet;
 
 import main.java.creature.character.Character;
 import main.java.creature.properties.attributes.Attribute;
+import main.java.units.length.LengthUnits;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.io.RandomAccessReadBufferedFile;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -86,7 +87,7 @@ public class CharSheetCreator {
         map.put("CHamod", String.format("%+d",character.getAttributes().getModifier(Attribute.CHA)));
         map.put("ProfBonus", String.valueOf(character.getProficiencyBonus()));
         map.put("AC", String.valueOf(character.getArmorClass()));
-        map.put("Speed", String.valueOf(character.getSpeed()));
+        map.put("Speed", String.valueOf(character.getSpeed().getAmount(LengthUnits.FT)));
         map.put("HPMax", String.valueOf(character.getMaxHP()));
         map.put("HPCurrent", String.valueOf(character.getCurrentHP()));
         map.put("HD", character.getCharacterClass().getHitDice().toString());
