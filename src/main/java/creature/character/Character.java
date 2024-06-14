@@ -7,12 +7,14 @@ import main.java.creature.properties.attributes.Attributes;
 import main.java.creature.character.character_class.CharacterClass;
 import main.java.creature.Creature;
 import main.java.creature.character.race.Race;
+import main.java.item.containers.Equipment;
 
 public class Character extends Creature {
 	private Race race;
 	private int age;
 	private CharacterClass characterClass;
 	private final Proficiencies proficiencies;
+	private final Equipment equipment;
 
     public static class Builder {
 		private final String name;
@@ -71,6 +73,7 @@ public class Character extends Creature {
 		this.currentHP = this.maxHP;
 		this.alignment = builder.alignment;
 		this.proficiencies = new Proficiencies();
+		this.equipment = new Equipment();
 	}
 
     public Race getRace() {
@@ -99,6 +102,18 @@ public class Character extends Creature {
 
 	public Proficiencies getProficiencies() {
 		return proficiencies;
+	}
+
+	public Equipment getEquipment() {
+		return equipment;
+	}
+
+	@Override
+	public int getArmorClass() {
+		int AC_fromArmor = equipment.getArmor().getArmorClass(attributes.getModifier(Attribute.DEX));
+		if (equipment.hasShieldEquipped())
+			return AC_fromArmor + 2;
+		return AC_fromArmor;
 	}
 
 	@Override
