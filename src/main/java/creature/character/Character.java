@@ -7,7 +7,7 @@ import main.java.creature.properties.attributes.Attributes;
 import main.java.creature.character.character_class.CharacterClass;
 import main.java.creature.Creature;
 import main.java.creature.character.race.Race;
-import main.java.item.containers.Equipment;
+import main.java.item.container.Equipment;
 
 public class Character extends Creature {
 	private Race race;

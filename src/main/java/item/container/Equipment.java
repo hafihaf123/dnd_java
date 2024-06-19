@@ -1,4 +1,4 @@
-package main.java.item.containers;
+package main.java.item.container;
 
 import main.java.item.armor.Armor;
 import main.java.item.armor.light_armor.NoArmor;
