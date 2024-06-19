@@ -18,4 +18,52 @@ public abstract class Weapon extends Item {
     protected Length maxRange;
     //versatile
     protected Dice twoHandedHitDice;
+
+    public Dice getHitDice() {
+        return hitDice;
+    }
+
+    public void setHitDice(Dice hitDice) {
+        this.hitDice = hitDice;
+    }
+
+    public int getNumOfRolls() {
+        return numOfRolls;
+    }
+
+    public void setNumOfRolls(int numOfRolls) {
+        this.numOfRolls = numOfRolls;
+    }
+
+    public DamageType getDamageType() {
+        return damageType;
+    }
+
+    public void setDamageType(DamageType damageType) {
+        this.damageType = damageType;
+    }
+
+    public Length getNormalRange() {
+        return normalRange;
+    }
+
+    public void setNormalRange(Length normalRange) {
+        this.normalRange = normalRange;
+    }
+
+    public Length getMaxRange() {
+        return maxRange;
+    }
+
+    public void setMaxRange(Length maxRange) {
+        this.maxRange = maxRange;
+    }
+
+    public Dice getTwoHandedHitDice() {
+        return twoHandedHitDice;
+    }
+
+    public void setTwoHandedHitDice(Dice twoHandedHitDice) {
+        this.twoHandedHitDice = twoHandedHitDice;
+    }
 }
